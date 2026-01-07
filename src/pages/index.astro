@@ -7,13 +7,25 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-    <Window id="container" title='Sobre Mi'>
+    <Window id="container" title='Sobre Mi' hidden={false}>
         <div class="p-4 text-white">
             <h2 class="text-2xl font-bold mb-4">Lorem Ipsum</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore qui voluptate ut assumenda, saepe architecto obcaecati! A assumenda iure magnam accusamus esse corrupti, nobis pariatur distinctio repellat exercitationem enim laborum?</p>
         </div>
     </Window>
-    <Window id="container2" title='Experiencia'>
+    <Window id="container2" title='Experiencia' hidden={true}>
+        <div class="p-4 text-white">
+            <h2 class="text-2xl font-bold mb-4">Lorem</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore qui voluptate ut assumenda, saepe architecto obcaecati! A assumenda iure magnam accusamus esse corrupti, nobis pariatur distinctio repellat exercitationem enim laborum?</p>
+        </div>
+    </Window>
+    <Window id="container3" title='Proyectos' hidden={true}>
+        <div class="p-4 text-white">
+            <h2 class="text-2xl font-bold mb-4">Lorem</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore qui voluptate ut assumenda, saepe architecto obcaecati! A assumenda iure magnam accusamus esse corrupti, nobis pariatur distinctio repellat exercitationem enim laborum?</p>
+        </div>
+    </Window>
+    <Window id="container4" title='Contacto' hidden={true}>
         <div class="p-4 text-white">
             <h2 class="text-2xl font-bold mb-4">Lorem</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore qui voluptate ut assumenda, saepe architecto obcaecati! A assumenda iure magnam accusamus esse corrupti, nobis pariatur distinctio repellat exercitationem enim laborum?</p>

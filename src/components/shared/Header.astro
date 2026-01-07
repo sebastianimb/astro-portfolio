@@ -1,10 +1,10 @@
 ---
 import { Icon } from 'astro-icon/components'
 const links = [
-    { text: 'Sobre Mi'},
-    { text: 'Experiencia'},
-    { text: 'Proyectos'},
-    { text: 'Contacto'},
+    { text: 'Sobre Mi', windowId: 'container' },
+    { text: 'Experiencia', windowId: 'container2' },
+    { text: 'Proyectos', windowId: 'container3' },
+    { text: 'Contacto', windowId: 'container4' },
 ]
 interface Props {
     id: string;
@@ -24,8 +24,8 @@ interface Props {
             <Icon name="close" size={32} class="m-4 cursor-pointer close-icon text-white"></Icon>
     </div>
     <nav class="flex flex-col gap-4 p-4 text-white">
-        {links.map(({ text }) => (
-            <div class="p-4 border border-x-0 border-t-0 border-b-white/20 hover:bg-white/10 cursor-pointer">
+        {links.map(({ text, windowId }) => (
+            <div class="p-4 border border-x-0 border-t-0 border-b-white/20 hover:bg-white/10 cursor-pointer" data-window-id={windowId}>
                 {text}
             </div>
         ))}
@@ -37,11 +37,33 @@ interface Props {
     const close = document.querySelector('.close-icon') as SVGSVGElement;
     const menu = document.getElementById('menu-burger') as HTMLElement;
     const links = menu?.querySelectorAll('nav div');
-    
-    links?.forEach(link => {
-        link.addEventListener('click', () => {
-            menu.classList.add('hidden');
+
+    function calculateMaxZIndex() {
+        let maxZ = 1;
+        document.querySelectorAll('.window-container').forEach(win => {
+            const z = parseInt(window.getComputedStyle(win).zIndex) || 1;
+            if (z > maxZ) {
+                maxZ = z;
+            }
         });
+        return maxZ + 1;
+    }
+
+    links?.forEach(link => {
+        if(link.getAttribute('data-window-id')){
+            link.addEventListener('click', () => {
+                const windowId = link.getAttribute('data-window-id');
+                menu.classList.add('hidden');
+                if (windowId) {
+                    const windowContainer = document.getElementById(windowId);
+                    if (windowContainer) {
+                        windowContainer.classList.remove('closed');
+                        const maxZ = calculateMaxZIndex();
+                        windowContainer.style.zIndex = maxZ.toString();
+                    }
+                }
+            });
+        }
     });
 
     if(burger){
@@ -82,6 +104,7 @@ interface Props {
         height: 100dvh;
         width: 100%;
         background-color: black;
+        z-index: 9999999999999999;
     }
     @media (min-width: 768px) {
         header{

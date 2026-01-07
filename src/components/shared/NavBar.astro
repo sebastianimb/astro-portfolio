@@ -25,15 +25,27 @@ interface Props {
 
 <script>
     const navIcons = document.querySelectorAll('.icon-nav');
+
+    function calculateMaxZIndex() {
+        let maxZ = 0;
+        document.querySelectorAll('.window-container').forEach(win => {
+            const z = parseInt(window.getComputedStyle(win).zIndex) || 0;
+            if (z > maxZ) {
+                maxZ = z;
+            }
+        });
+        return maxZ;
+    }
     
     navIcons.forEach(icon => {
         icon.addEventListener('click', () => {
             const windowId = icon.getAttribute('data-window-id');
+            const maxZ = calculateMaxZIndex();
             if (windowId) {
                 const windowContainer = document.getElementById(windowId);
                 if (windowContainer) {
                     windowContainer.classList.remove('closed');
-                    windowContainer.style.zIndex = '100';
+                    windowContainer.style.zIndex = (maxZ + 1).toString();
                 }
             }
         });

@@ -1,5 +1,5 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import Window from '@/components/shared/Window.astro';
 import Layout from '../layouts/Layout.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -7,5 +7,16 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<Welcome />
+    <Window id="container" title='Sobre Mi'>
+        <div class="p-4 text-white">
+            <h2 class="text-2xl font-bold mb-4">Lorem Ipsum</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore qui voluptate ut assumenda, saepe architecto obcaecati! A assumenda iure magnam accusamus esse corrupti, nobis pariatur distinctio repellat exercitationem enim laborum?</p>
+        </div>
+    </Window>
+    <Window id="container2" title='Experiencia'>
+        <div class="p-4 text-white">
+            <h2 class="text-2xl font-bold mb-4">Lorem</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore qui voluptate ut assumenda, saepe architecto obcaecati! A assumenda iure magnam accusamus esse corrupti, nobis pariatur distinctio repellat exercitationem enim laborum?</p>
+        </div>
+    </Window>
 </Layout>

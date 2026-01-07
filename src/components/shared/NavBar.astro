@@ -1,0 +1,103 @@
+---
+const links = [
+    { image: "user", text: 'Sobre Mi' , color: 'lightblue', windowId: 'container' },
+    { image: "experience", text: 'Experiencia', color: '#ef476f', windowId: 'container2' },
+    { image: "projects", text: 'Proyectos', color: '#ffd166', windowId: 'container3' },
+    { image: "contact", text: 'Contacto', color: '#06d6a0', windowId: 'container4' },
+]
+import { Icon } from 'astro-icon/components'
+interface Props {
+    id:string
+}
+---
+<nav class="hidden px-4 mb-4 justify-self-center bg-black/30 border border-white/10 rounded-md shadow-lg" id={Astro.props.id}>
+    <div id="container" class="container flex items-center gap-12 justify-center p-4 mx-auto">
+         { links.map(({ image, text, color, windowId })=>{
+            return (
+                <div class="icon-nav flex cursor-pointer flex-col items-center align-middle justify-center" data-color-text={color} data-tooltip-target={text} data-window-id={windowId}>
+                    <Icon name={image} size={40} color={color} class="inline-block mb-1"/>
+                    <span id="text-nav" style={`color: ${color}`}>{text}</span>
+                </div>
+            )
+        }) }
+    </div>
+</nav>
+
+<script>
+    const navIcons = document.querySelectorAll('.icon-nav');
+    
+    navIcons.forEach(icon => {
+        icon.addEventListener('click', () => {
+            const windowId = icon.getAttribute('data-window-id');
+            if (windowId) {
+                const windowContainer = document.getElementById(windowId);
+                if (windowContainer) {
+                    windowContainer.classList.remove('closed');
+                    windowContainer.style.zIndex = '100';
+                }
+            }
+        });
+    });
+</script>
+
+<style>
+    .icon-nav{
+        transition: transform 125ms ease;
+        position: relative;
+    }
+    .icon-nav::before,
+    .icon-nav::after{
+        --scale: 0;
+        position: absolute;
+        top: -.25rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(-100%) scale(var(--scale));
+        transition: 35ms transform;
+        transform-origin: bottom center;
+    }
+    .icon-nav::before{
+        content: attr(data-tooltip-target);
+        color: white;
+        font-size: 0.75rem;
+        font-weight: 600;
+        white-space: nowrap;
+        margin-bottom: 0.25rem;
+        width: max-content;
+        background-color: #1f1f1fcc;
+        padding: 0.25rem 0.5rem;
+        border-radius: .5rem;
+        border: solid 1px #ffffff08;
+    }
+    .icon-nav:hover::before,
+    .icon-nav:hover::after{
+        --scale: 1;
+    }
+    .icon-nav::after{
+        content: '';
+        color: red;
+        width: .5rem;
+        height: .5rem;
+        background-color: #1f1f1fcc;
+        border-radius: 50%;
+        border: solid 1px #ffffff08;
+        margin-top: .125rem;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    }
+    .icon-nav:hover{
+        transform: scale(1.4);
+    }
+    #nav{
+        grid-area: nav;
+    }
+    @media (min-width: 768px) {
+        #nav{
+            display: block;
+        }
+    }
+    @media (min-width: 1024px) {
+        #text-nav{
+            display: none;
+        }
+    }
+</style>
+</script>

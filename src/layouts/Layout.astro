@@ -1,22 +1,67 @@
+---
+import { siteInfo } from "@const/site.info";
+import { ClientRouter } from "astro:transitions";
+import NavBar from "@components/shared/NavBar.astro";
+import "@styles/global.css";
+import Header from "@/components/shared/Header.astro";
+import Window from "@/components/shared/Window.astro";
+interface Props {
+	title?: string;
+	description?: string;
+}
+const { title = siteInfo.title, description = siteInfo.description } = Astro.props;
+---
 <!doctype html>
 <html lang="en">
 	<head>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="description" content={description} />
+		<meta name="author" content="Sebastian Molina" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<title>{title}</title>
+		<ClientRouter />
 	</head>
 	<body>
+		<Header id="header" />
 		<slot />
+		<NavBar id="nav" />
 	</body>
 </html>
 
 <style>
 	html,
 	body {
+		background-image: url(../assets/bg.jpg);
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
 		margin: 0;
 		width: 100%;
-		height: 100%;
+		height: 100dvh;
+		display: grid;
+		justify-content: center;
+		grid-template-rows: auto 1fr;
+		grid-template-columns: 1fr;
+		align-items: center;
+		grid-template-areas: 
+			"header"
+			"main";
 	}
+
+	@media (min-width: 768px) {
+		html,
+		body {
+			grid-template-rows: auto 1fr auto;
+			grid-template-columns: 1fr;
+			grid-template-areas: 
+				"header"
+				"main"
+				"nav";
+		}
+	}
+
 </style>

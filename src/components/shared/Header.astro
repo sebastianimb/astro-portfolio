@@ -1,0 +1,100 @@
+---
+import { Icon } from 'astro-icon/components'
+const links = [
+    { text: 'Sobre Mi'},
+    { text: 'Experiencia'},
+    { text: 'Proyectos'},
+    { text: 'Contacto'},
+]
+interface Props {
+    id: string;
+}
+---
+<header class="flex items-center justify-between p-4 bg-black text-white" id={Astro.props.id}>
+    <h1 class="font-bold">Sebastián Molina</h1>
+    <h1 class="capitalize hidden" id="date"></h1>
+    <section class="hidden justify-center items-center" id="percent">
+        <h1>100%</h1>
+        <Icon name="battery" size={24}></Icon>
+    </section>
+    <Icon name="burger" class="cursor-pointer burger-icon" size={32} id="burger-icon"></Icon>
+</header>
+<section class="absolute hidden px-2" id="menu-burger">
+    <div class="w-full flex justify-end">
+            <Icon name="close" size={32} class="m-4 cursor-pointer close-icon text-white"></Icon>
+    </div>
+    <nav class="flex flex-col gap-4 p-4 text-white">
+        {links.map(({ text }) => (
+            <div class="p-4 border border-x-0 border-t-0 border-b-white/20 hover:bg-white/10 cursor-pointer">
+                {text}
+            </div>
+        ))}
+    </nav>
+</section>
+
+<script>
+    const burger = document.querySelector('.burger-icon') as SVGSVGElement;
+    const close = document.querySelector('.close-icon') as SVGSVGElement;
+    const menu = document.getElementById('menu-burger') as HTMLElement;
+    const links = menu?.querySelectorAll('nav div');
+    
+    links?.forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.add('hidden');
+        });
+    });
+
+    if(burger){
+        burger.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    }
+
+    if(close){
+        close.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });     
+    }
+</script>
+
+<script>
+    function actualizarFecha() {
+        const date = new Date().toLocaleDateString('es-ES', {
+            day: 'numeric',
+            month: 'short',
+            hour: 'numeric',
+            minute: 'numeric'
+        });
+        const dateElement = document.getElementById('date');
+        if(dateElement){
+            dateElement.textContent = date;
+        }
+    }
+    actualizarFecha();
+    setInterval(actualizarFecha, 1000 * 60);
+</script>
+
+<style>
+    #header{
+        grid-area: header;
+    }
+    #menu-burger{
+        height: 100dvh;
+        width: 100%;
+        background-color: black;
+    }
+    @media (min-width: 768px) {
+        header{
+            padding: 0.5rem 1rem;
+        }
+        #date  {
+            display: block;
+        }
+        #burger-icon {
+            display: none !important;
+        }
+        #percent{
+            display: flex;
+        }
+    }
+</style>

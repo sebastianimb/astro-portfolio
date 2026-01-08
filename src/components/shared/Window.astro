@@ -10,17 +10,17 @@ interface Props {
 const { title, id } = Astro.props;
 ---
 
-<div id={id} class="window-container" class:list={[Astro.props.hidden ? "closed" : ""]}>
-	<main id={`window-${id}`} class="window grid w-full bg-black/99 border border-white/20 rounded-md shadow-lg">
-		<section id={`window-header-${id}`} class="window-header text-white font-bold w-full bg-white/90 rounded-t-md py-1 px-4 cursor-grab active:cursor-grabbing">
-			<h1>
-				{title}
-			</h1>
-			<div class="flex">
-				<Icon name="minimize" size={24} class="mr-4 cursor-pointer" id={`minimize-${id}`}></Icon>
-				<Icon name="close" size={24} id={`close-${id}`} class="cursor-pointer"></Icon>
-			</div>
-		</section>
+<div id={id} class="window-container p-8 w-full h-full overflow-y-hidden mb-8" class:list={[Astro.props.hidden ? "closed" : ""]}>
+	<section class="window-header flex justify-between text-black font-bold w-full bg-white/90 rounded-t-md py-1 px-4 cursor-grab active:cursor-grabbing">
+		<h1>
+			{title}
+		</h1>
+		<div class="flex">
+			<Icon name="minimize" size={24} class="mr-4 cursor-pointer" id={`minimize-${id}`}></Icon>
+			<Icon name="close" size={24} id={`close-${id}`} class="cursor-pointer"></Icon>
+		</div>
+	</section>
+	<main id={`window-${id}`} class="window bg-black/90 place-items-center grid w-full h-full items-center border overflow-y-scroll border-white/20 rounded-md shadow-lg">
 		<slot />
 	</main>
 </div>
@@ -45,10 +45,7 @@ const { title, id } = Astro.props;
 <style>
 	.window-container {
 		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-		height: 100%;
 		grid-area: main;
-		padding: 2rem;
-		width: 100%;
 		transform: scale(1) translateY(0);
 		opacity: 1;
 		transition: transform 300ms ease, opacity 300ms ease;
@@ -60,16 +57,8 @@ const { title, id } = Astro.props;
 	}
 
 	.window {
-		grid-template-rows: auto 1fr auto;
-		align-items: center;
-		height: 100%;
-	}
-	
-	.window-header {
-		display: flex;
-		justify-content: space-between;
-		color: black;
-	}
+		grid-template-rows: 1fr;
+	}    
 	
 	.closed {
 		visibility: hidden;

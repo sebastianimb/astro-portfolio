@@ -1,34 +1,26 @@
 ---
 import Window from '@/components/shared/Window.astro';
 import Layout from '../layouts/Layout.astro';
+import AboutMe from '@/components/AboutMe.astro';
+import Experience from '@/components/Experience.astro';
+import Projects from '@/components/Projects.astro';
+import Contact from '@/components/Contact.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-    <Window id="container" title='Sobre Mi' hidden={false}>
-        <div class="p-4 text-white">
-            <h2 class="text-2xl font-bold mb-4">Lorem Ipsum</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore qui voluptate ut assumenda, saepe architecto obcaecati! A assumenda iure magnam accusamus esse corrupti, nobis pariatur distinctio repellat exercitationem enim laborum?</p>
-        </div>
+    <Window id="container-about" title='Sobre Mi' hidden={false}>
+        <AboutMe />
     </Window>
-    <Window id="container2" title='Experiencia' hidden={true}>
-        <div class="p-4 text-white">
-            <h2 class="text-2xl font-bold mb-4">Lorem</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore qui voluptate ut assumenda, saepe architecto obcaecati! A assumenda iure magnam accusamus esse corrupti, nobis pariatur distinctio repellat exercitationem enim laborum?</p>
-        </div>
+    <Window id="container-experience" title='Experiencia' hidden={true}>
+        <Experience />
     </Window>
-    <Window id="container3" title='Proyectos' hidden={true}>
-        <div class="p-4 text-white">
-            <h2 class="text-2xl font-bold mb-4">Lorem</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore qui voluptate ut assumenda, saepe architecto obcaecati! A assumenda iure magnam accusamus esse corrupti, nobis pariatur distinctio repellat exercitationem enim laborum?</p>
-        </div>
+    <Window id="container-projects" title='Proyectos' hidden={true}>
+        <Projects />
     </Window>
-    <Window id="container4" title='Contacto' hidden={true}>
-        <div class="p-4 text-white">
-            <h2 class="text-2xl font-bold mb-4">Lorem</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore qui voluptate ut assumenda, saepe architecto obcaecati! A assumenda iure magnam accusamus esse corrupti, nobis pariatur distinctio repellat exercitationem enim laborum?</p>
-        </div>
+    <Window id="container-contact" title='Contacto' hidden={true}>
+        <Contact />
     </Window>
 </Layout>

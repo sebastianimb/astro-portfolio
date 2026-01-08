@@ -1,0 +1,6 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/node_modules/.pnpm/astro@5.16.6_@types+node@25.0.3_jiti@2.6.1_lightningcss@1.30.2_rollup@4.55.1_typescript@5.9.3/node_modules/astro/components/ClientRouter.astro?astro&type=style&index=0&lang.css");import { updateStyle as __vite__updateStyle, removeStyle as __vite__removeStyle } from "/@vite/client"
+const __vite__id = "/Users/sebastian/Documents/astro-portfolio/node_modules/.pnpm/astro@5.16.6_@types+node@25.0.3_jiti@2.6.1_lightningcss@1.30.2_rollup@4.55.1_typescript@5.9.3/node_modules/astro/components/ClientRouter.astro?astro&type=style&index=0&lang.css"
+const __vite__css = "/* Route announcer */\n\t.astro-route-announcer {\n\t\tposition: absolute;\n\t\tleft: 0;\n\t\ttop: 0;\n\t\tclip: rect(0 0 0 0);\n\t\tclip-path: inset(50%);\n\t\toverflow: hidden;\n\t\twhite-space: nowrap;\n\t\twidth: 1px;\n\t\theight: 1px;\n\t}"
+__vite__updateStyle(__vite__id, __vite__css)
+import.meta.hot.accept()
+import.meta.hot.prune(() => __vite__removeStyle(__vite__id))

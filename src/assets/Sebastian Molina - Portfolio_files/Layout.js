@@ -1,0 +1,6 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/layouts/Layout.astro?astro&type=style&index=0&lang.css");import { updateStyle as __vite__updateStyle, removeStyle as __vite__removeStyle } from "/@vite/client"
+const __vite__id = "/Users/sebastian/Documents/astro-portfolio/src/layouts/Layout.astro?astro&type=style&index=0&lang.css"
+const __vite__css = "html,body{background-image:url(/src/assets/bg.jpg);background-size:cover;background-position:center;background-repeat:no-repeat;margin:0;width:100%;height:100dvh;display:grid;justify-content:center;grid-template-rows:auto 1fr;grid-template-columns:1fr;align-items:center;grid-template-areas:\"header\" \"main\"}@media (min-width: 768px){html,body{grid-template-rows:auto 1fr auto;grid-template-columns:1fr;grid-template-areas:\"header\" \"main\" \"nav\"}}"
+__vite__updateStyle(__vite__id, __vite__css)
+import.meta.hot.accept()
+import.meta.hot.prune(() => __vite__removeStyle(__vite__id))

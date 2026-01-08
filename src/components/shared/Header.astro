@@ -1,17 +1,17 @@
 ---
 import { Icon } from 'astro-icon/components'
 const links = [
-    { text: 'Sobre Mi', windowId: 'container' },
-    { text: 'Experiencia', windowId: 'container2' },
-    { text: 'Proyectos', windowId: 'container3' },
-    { text: 'Contacto', windowId: 'container4' },
+    { text: 'Sobre Mi', windowId: 'container-about' },
+    { text: 'Experiencia', windowId: 'container-experience' },
+    { text: 'Proyectos', windowId: 'container-projects' },
+    { text: 'Contacto', windowId: 'container-contact' },
 ]
 interface Props {
     id: string;
 }
 ---
-<header class="flex items-center justify-between p-4 bg-black text-white" id={Astro.props.id}>
-    <h1 class="font-bold">Sebastián Molina</h1>
+<header class="flex items-center justify-between p-4 px-8 bg-black text-white" id={Astro.props.id}>
+    <h1 id="go-to-about" class="font-bold cursor-pointer">Sebastian Molina</h1>
     <h1 class="capitalize hidden" id="date"></h1>
     <section class="hidden justify-center items-center" id="percent">
         <h1>100%</h1>
@@ -19,7 +19,7 @@ interface Props {
     </section>
     <Icon name="burger" class="cursor-pointer burger-icon" size={32} id="burger-icon"></Icon>
 </header>
-<section class="absolute hidden px-2" id="menu-burger">
+<section class="absolute hidden px-2 w-full bg-black" id="menu-burger">
     <div class="w-full flex justify-end">
             <Icon name="close" size={32} class="m-4 cursor-pointer close-icon text-white"></Icon>
     </div>
@@ -54,6 +54,12 @@ interface Props {
             link.addEventListener('click', () => {
                 const windowId = link.getAttribute('data-window-id');
                 menu.classList.add('hidden');
+                const allWindows = document.querySelectorAll('.window-container');
+                allWindows.forEach(win => {
+                    if (win.id !== windowId) {
+                        win.classList.add('closed');
+                    }
+                });
                 if (windowId) {
                     const windowContainer = document.getElementById(windowId);
                     if (windowContainer) {
@@ -64,6 +70,23 @@ interface Props {
                 }
             });
         }
+    });
+
+    const goToAbout = document.getElementById("go-to-about") as HTMLElement;
+    goToAbout.addEventListener("click", () => {
+        const windowContainer = document.getElementById("container-about") as HTMLElement;
+        const allWindows = document.querySelectorAll('.window-container');
+        allWindows.forEach(win => {
+            if (win.id !== "container-about") {
+                win.classList.add('closed');
+            }
+        });
+        if (windowContainer) {
+            const maxZ = calculateMaxZIndex();
+            windowContainer.classList.remove("closed");
+            windowContainer.style.zIndex = (maxZ + 1).toString();
+        }
+        
     });
 
     if(burger){
@@ -102,13 +125,11 @@ interface Props {
     }
     #menu-burger{
         height: 100dvh;
-        width: 100%;
-        background-color: black;
-        z-index: 9999999999999999;
+        z-index: 1001;
     }
     @media (min-width: 768px) {
         header{
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 2rem;
         }
         #date  {
             display: block;

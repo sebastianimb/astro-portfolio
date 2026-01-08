@@ -1,9 +1,9 @@
 ---
 const links = [
-    { image: "user", text: 'Sobre Mi' , color: 'lightblue', windowId: 'container' },
-    { image: "experience", text: 'Experiencia', color: '#ef476f', windowId: 'container2' },
-    { image: "projects", text: 'Proyectos', color: '#ffd166', windowId: 'container3' },
-    { image: "contact", text: 'Contacto', color: '#06d6a0', windowId: 'container4' },
+    { image: "user", text: 'Sobre Mi' , color: 'lightblue', windowId: 'container-about' },
+    { image: "experience", text: 'Experiencia', color: '#ef476f', windowId: 'container-experience' },
+    { image: "projects", text: 'Proyectos', color: '#ffd166', windowId: 'container-projects' },
+    { image: "contact", text: 'Contacto', color: '#06d6a0', windowId: 'container-contact' },
 ]
 import { Icon } from 'astro-icon/components'
 interface Props {
@@ -41,10 +41,16 @@ interface Props {
         icon.addEventListener('click', () => {
             const windowId = icon.getAttribute('data-window-id');
             const maxZ = calculateMaxZIndex();
+            const allWindows = document.querySelectorAll('.window-container');
+            allWindows.forEach(win => {
+                if (win.id !== windowId) {
+                    win.classList.add('closed');
+                }
+            });
             if (windowId) {
                 const windowContainer = document.getElementById(windowId);
                 if (windowContainer) {
-                    windowContainer.classList.remove('closed');
+                    windowContainer.classList.toggle('closed');
                     windowContainer.style.zIndex = (maxZ + 1).toString();
                 }
             }
@@ -53,6 +59,9 @@ interface Props {
 </script>
 
 <style>
+    #nav{
+        grid-area: nav;
+    }
     .icon-nav{
         transition: transform 125ms ease;
         position: relative;
@@ -97,9 +106,7 @@ interface Props {
     }
     .icon-nav:hover{
         transform: scale(1.4);
-    }
-    #nav{
-        grid-area: nav;
+        z-index: 1000;
     }
     @media (min-width: 768px) {
         #nav{

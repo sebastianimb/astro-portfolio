@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en" data-astro-cid-sckkx6r4=""><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><link rel="icon" type="image/svg+xml" href="http://localhost:4321/favicon.svg"><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v5.16.6"><meta name="description" content="Portafolio website of Sebastian Molina, a full stack developer."><meta name="author" content="Sebastian Molina"><meta property="og:title" content="Sebastian Molina - Portfolio"><meta property="og:description" content="Portafolio website of Sebastian Molina, a full stack developer."><title>Sebastian Molina - Portfolio</title><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="Sebastian%20Molina%20-%20Portfolio_files/ClientRouter.js" data-astro-exec=""></script><style data-vite-dev-id="/Users/sebastian/Documents/astro-portfolio/src/components/shared/Window.astro?astro&amp;type=style&amp;index=0&amp;lang.css">.window-container[data-astro-cid-t4ujtgoe]{font-family:Inter,Roboto,"Helvetica Neue","Arial Nova","Nimbus Sans",Arial,sans-serif;height:100%;grid-area:main;padding:2rem;width:100%;transform:scale(1) translateY(0);opacity:1;transition:transform 300ms ease,opacity 300ms ease;transform-origin:bottom center;@starting-style{opacity:0;transform:scale(0) translateY(100%)}}.window[data-astro-cid-t4ujtgoe]{grid-template-rows:1fr;place-items:center;height:100%;background-color:#090909fc}.window-header[data-astro-cid-t4ujtgoe]{display:flex;justify-content:space-between;color:black}.closed[data-astro-cid-t4ujtgoe]{visibility:hidden;opacity:0;transform:scale(0) translateY(100%);transition:opacity 300ms ease,transform 300ms ease,visibility 300ms ease}@media screen and (max-width: 768px){#container[data-astro-cid-t4ujtgoe]{display:flex;flex-direction:column}}</style>
+<style data-vite-dev-id="/Users/sebastian/Documents/astro-portfolio/node_modules/.pnpm/astro@5.16.6_@types+node@25.0.3_jiti@2.6.1_lightningcss@1.30.2_rollup@4.55.1_typescript@5.9.3/node_modules/astro/components/ClientRouter.astro?astro&amp;type=style&amp;index=0&amp;lang.css">/* Route announcer */
+	.astro-route-announcer {
+		position: absolute;
+		left: 0;
+		top: 0;
+		clip: rect(0 0 0 0);
+		clip-path: inset(50%);
+		overflow: hidden;
+		white-space: nowrap;
+		width: 1px;
+		height: 1px;
+	}</style>
+<style data-vite-dev-id="/Users/sebastian/Documents/astro-portfolio/src/components/shared/NavBar.astro?astro&amp;type=style&amp;index=0&amp;lang.css">.icon-nav[data-astro-cid-irknx6eh]{transition:transform 125ms ease;position:relative}.icon-nav[data-astro-cid-irknx6eh]::before,.icon-nav[data-astro-cid-irknx6eh]::after{--scale: 0;position:absolute;top:-.25rem;left:50%;transform:translateX(-50%) translateY(-100%) scale(var(--scale));transition:35ms transform;transform-origin:bottom center;z-index:9999999999999}.icon-nav[data-astro-cid-irknx6eh]::before{content:attr(data-tooltip-target);color:white;font-size:0.75rem;font-weight:600;white-space:nowrap;margin-bottom:0.25rem;width:max-content;background-color:#1f1f1fcc;padding:0.25rem 0.5rem;border-radius:.5rem;border:solid 1px #ffffff08;z-index:9999999999999}.icon-nav[data-astro-cid-irknx6eh]:hover::before,.icon-nav[data-astro-cid-irknx6eh]:hover::after{--scale: 1}.icon-nav[data-astro-cid-irknx6eh]::after{content:"";color:red;width:.5rem;height:.5rem;background-color:#1f1f1fcc;border-radius:50%;border:solid 1px #ffffff08;margin-top:.125rem;clip-path:polygon(50% 0%,0% 100%,100% 100%);z-index:9999999999999}.icon-nav[data-astro-cid-irknx6eh]:hover{transform:scale(1.4)}#nav[data-astro-cid-irknx6eh]{grid-area:nav}@media (min-width: 768px){#nav[data-astro-cid-irknx6eh]{display:block}}@media (min-width: 1024px){#text-nav[data-astro-cid-irknx6eh]{display:none}}</style>
+<style data-vite-dev-id="/Users/sebastian/Documents/astro-portfolio/src/styles/global.css">/*! tailwindcss v4.1.18 | MIT License | https://tailwindcss.com */
+@layer properties;
+@layer theme, base, components, utilities;
+@layer theme {
+  :root, :host {
+    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+    --color-gray-900: oklch(21% 0.034 264.665);
+    --color-black: #000;
+    --color-white: #fff;
+    --spacing: 0.25rem;
+    --container-xl: 36rem;
+    --container-3xl: 48rem;
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: calc(2.25 / 1.875);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
+    --font-weight-bold: 700;
+    --radius-md: 0.375rem;
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --default-transition-duration: 150ms;
+    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+  }
+}
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+  html, :host {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    -webkit-tap-highlight-color: transparent;
+  }
+  hr {
+    height: 0;
+    color: inherit;
+    border-top-width: 1px;
+  }
+  abbr:where([title]) {
+    -webkit-text-decoration: underline dotted;
+    text-decoration: underline dotted;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  a {
+    color: inherit;
+    -webkit-text-decoration: inherit;
+    text-decoration: inherit;
+  }
+  b, strong {
+    font-weight: bolder;
+  }
+  code, kbd, samp, pre {
+    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
+    font-feature-settings: var(--default-mono-font-feature-settings, normal);
+    font-variation-settings: var(--default-mono-font-variation-settings, normal);
+    font-size: 1em;
+  }
+  small {
+    font-size: 80%;
+  }
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  sup {
+    top: -0.5em;
+  }
+  table {
+    text-indent: 0;
+    border-color: inherit;
+    border-collapse: collapse;
+  }
+  :-moz-focusring {
+    outline: auto;
+  }
+  progress {
+    vertical-align: baseline;
+  }
+  summary {
+    display: list-item;
+  }
+  ol, ul, menu {
+    list-style: none;
+  }
+  img, svg, video, canvas, audio, iframe, embed, object {
+    display: block;
+    vertical-align: middle;
+  }
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+  button, input, select, optgroup, textarea, ::file-selector-button {
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 1;
+  }
+  :where(select:is([multiple], [size])) optgroup {
+    font-weight: bolder;
+  }
+  :where(select:is([multiple], [size])) optgroup option {
+    padding-inline-start: 20px;
+  }
+  ::file-selector-button {
+    margin-inline-end: 4px;
+  }
+  ::placeholder {
+    opacity: 1;
+  }
+  @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
+    ::placeholder {
+      color: currentcolor;
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, currentcolor 50%, transparent);
+      }
+    }
+  }
+  textarea {
+    resize: vertical;
+  }
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  ::-webkit-date-and-time-value {
+    min-height: 1lh;
+    text-align: inherit;
+  }
+  ::-webkit-datetime-edit {
+    display: inline-flex;
+  }
+  ::-webkit-datetime-edit-fields-wrapper {
+    padding: 0;
+  }
+  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {
+    padding-block: 0;
+  }
+  ::-webkit-calendar-picker-indicator {
+    line-height: 1;
+  }
+  :-moz-ui-invalid {
+    box-shadow: none;
+  }
+  button, input:where([type="button"], [type="reset"], [type="submit"]), ::file-selector-button {
+    appearance: button;
+  }
+  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+    height: auto;
+  }
+  [hidden]:where(:not([hidden="until-found"])) {
+    display: none !important;
+  }
+}
+@layer utilities {
+  .absolute {
+    position: absolute;
+  }
+  .bottom-8 {
+    bottom: calc(var(--spacing) * 8);
+  }
+  .left-1\/2 {
+    left: calc(1/2 * 100%);
+  }
+  .container {
+    width: 100%;
+    @media (width >= 40rem) {
+      max-width: 40rem;
+    }
+    @media (width >= 48rem) {
+      max-width: 48rem;
+    }
+    @media (width >= 64rem) {
+      max-width: 64rem;
+    }
+    @media (width >= 80rem) {
+      max-width: 80rem;
+    }
+    @media (width >= 96rem) {
+      max-width: 96rem;
+    }
+  }
+  .m-4 {
+    margin: calc(var(--spacing) * 4);
+  }
+  .mx-auto {
+    margin-inline: auto;
+  }
+  .mt-8 {
+    margin-top: calc(var(--spacing) * 8);
+  }
+  .mt-16 {
+    margin-top: calc(var(--spacing) * 16);
+  }
+  .mr-4 {
+    margin-right: calc(var(--spacing) * 4);
+  }
+  .mr-8 {
+    margin-right: calc(var(--spacing) * 8);
+  }
+  .mb-1 {
+    margin-bottom: calc(var(--spacing) * 1);
+  }
+  .mb-4 {
+    margin-bottom: calc(var(--spacing) * 4);
+  }
+  .mb-6 {
+    margin-bottom: calc(var(--spacing) * 6);
+  }
+  .mb-8 {
+    margin-bottom: calc(var(--spacing) * 8);
+  }
+  .mb-16 {
+    margin-bottom: calc(var(--spacing) * 16);
+  }
+  .flex {
+    display: flex;
+  }
+  .grid {
+    display: grid;
+  }
+  .hidden {
+    display: none;
+  }
+  .inline-block {
+    display: inline-block;
+  }
+  .h-32 {
+    height: calc(var(--spacing) * 32);
+  }
+  .h-64 {
+    height: calc(var(--spacing) * 64);
+  }
+  .h-full {
+    height: 100%;
+  }
+  .h-screen {
+    height: 100vh;
+  }
+  .w-32 {
+    width: calc(var(--spacing) * 32);
+  }
+  .w-64 {
+    width: calc(var(--spacing) * 64);
+  }
+  .w-full {
+    width: 100%;
+  }
+  .max-w-3xl {
+    max-width: var(--container-3xl);
+  }
+  .max-w-xl {
+    max-width: var(--container-xl);
+  }
+  .flex-1 {
+    flex: 1;
+  }
+  .-translate-x-1\/2 {
+    --tw-translate-x: calc(calc(1/2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .transform {
+    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
+  .cursor-grab {
+    cursor: grab;
+  }
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  .list-inside {
+    list-style-position: inside;
+  }
+  .list-disc {
+    list-style-type: disc;
+  }
+  .flex-col {
+    flex-direction: column;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .justify-end {
+    justify-content: flex-end;
+  }
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
+  }
+  .gap-12 {
+    gap: calc(var(--spacing) * 12);
+  }
+  .justify-self-center {
+    justify-self: center;
+  }
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  .overflow-scroll {
+    overflow: scroll;
+  }
+  .overflow-y-hidden {
+    overflow-y: hidden;
+  }
+  .overflow-y-scroll {
+    overflow-y: scroll;
+  }
+  .rounded-full {
+    border-radius: calc(infinity * 1px);
+  }
+  .rounded-md {
+    border-radius: var(--radius-md);
+  }
+  .rounded-t-md {
+    border-top-left-radius: var(--radius-md);
+    border-top-right-radius: var(--radius-md);
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+  .border-x-0 {
+    border-inline-style: var(--tw-border-style);
+    border-inline-width: 0px;
+  }
+  .border-t-0 {
+    border-top-style: var(--tw-border-style);
+    border-top-width: 0px;
+  }
+  .border-r-2 {
+    border-right-style: var(--tw-border-style);
+    border-right-width: 2px;
+  }
+  .border-white\/10 {
+    border-color: color-mix(in srgb, #fff 10%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+    }
+  }
+  .border-white\/20 {
+    border-color: color-mix(in srgb, #fff 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-white) 20%, transparent);
+    }
+  }
+  .border-white\/50 {
+    border-color: color-mix(in srgb, #fff 50%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-white) 50%, transparent);
+    }
+  }
+  .border-b-white\/20 {
+    border-bottom-color: color-mix(in srgb, #fff 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-bottom-color: color-mix(in oklab, var(--color-white) 20%, transparent);
+    }
+  }
+  .bg-black {
+    background-color: var(--color-black);
+  }
+  .bg-black\/30 {
+    background-color: color-mix(in srgb, #000 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-black) 30%, transparent);
+    }
+  }
+  .bg-black\/90 {
+    background-color: color-mix(in srgb, #000 90%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-black) 90%, transparent);
+    }
+  }
+  .bg-black\/95 {
+    background-color: color-mix(in srgb, #000 95%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-black) 95%, transparent);
+    }
+  }
+  .bg-black\/96 {
+    background-color: color-mix(in srgb, #000 96%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-black) 96%, transparent);
+    }
+  }
+  .bg-black\/99 {
+    background-color: color-mix(in srgb, #000 99%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-black) 99%, transparent);
+    }
+  }
+  .bg-gray-900\/96 {
+    background-color: color-mix(in srgb, oklch(21% 0.034 264.665) 96%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-gray-900) 96%, transparent);
+    }
+  }
+  .bg-white {
+    background-color: var(--color-white);
+  }
+  .bg-white\/30 {
+    background-color: color-mix(in srgb, #fff 30%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-white) 30%, transparent);
+    }
+  }
+  .bg-white\/90 {
+    background-color: color-mix(in srgb, #fff 90%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-white) 90%, transparent);
+    }
+  }
+  .p-4 {
+    padding: calc(var(--spacing) * 4);
+  }
+  .p-8 {
+    padding: calc(var(--spacing) * 8);
+  }
+  .px-2 {
+    padding-inline: calc(var(--spacing) * 2);
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+  .py-1 {
+    padding-block: calc(var(--spacing) * 1);
+  }
+  .py-16 {
+    padding-block: calc(var(--spacing) * 16);
+  }
+  .text-center {
+    text-align: center;
+  }
+  .align-middle {
+    vertical-align: middle;
+  }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  .text-3xl {
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+  }
+  .text-4xl {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+  .capitalize {
+    text-transform: capitalize;
+  }
+  .opacity-5 {
+    opacity: 5%;
+  }
+  .opacity-50 {
+    opacity: 50%;
+  }
+  .shadow-lg {
+    --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .filter {
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .transition {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .ease-in-out {
+    --tw-ease: var(--ease-in-out);
+    transition-timing-function: var(--ease-in-out);
+  }
+  .hover\:bg-white\/10 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, #fff 10%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+        }
+      }
+    }
+  }
+  .active\:cursor-grabbing {
+    &:active {
+      cursor: grabbing;
+    }
+  }
+}
+@property --tw-translate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-translate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0;
+}
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-blur {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-brightness {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-contrast {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-grayscale {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-hue-rotate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-invert {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-opacity {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-saturate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-sepia {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-drop-shadow {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-drop-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-drop-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-drop-shadow-size {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ease {
+  syntax: "*";
+  inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-translate-z: 0;
+      --tw-rotate-x: initial;
+      --tw-rotate-y: initial;
+      --tw-rotate-z: initial;
+      --tw-skew-x: initial;
+      --tw-skew-y: initial;
+      --tw-border-style: solid;
+      --tw-font-weight: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-blur: initial;
+      --tw-brightness: initial;
+      --tw-contrast: initial;
+      --tw-grayscale: initial;
+      --tw-hue-rotate: initial;
+      --tw-invert: initial;
+      --tw-opacity: initial;
+      --tw-saturate: initial;
+      --tw-sepia: initial;
+      --tw-drop-shadow: initial;
+      --tw-drop-shadow-color: initial;
+      --tw-drop-shadow-alpha: 100%;
+      --tw-drop-shadow-size: initial;
+      --tw-ease: initial;
+    }
+  }
+}
+</style>
+<style data-vite-dev-id="/Users/sebastian/Documents/astro-portfolio/src/components/shared/Header.astro?astro&amp;type=style&amp;index=0&amp;lang.css">#header[data-astro-cid-j2devmb2]{grid-area:header}#menu-burger[data-astro-cid-j2devmb2]{height:100dvh;width:100%;background-color:black;z-index:9999999999999999}@media (min-width: 768px){header[data-astro-cid-j2devmb2]{padding:0.5rem 1rem}#date[data-astro-cid-j2devmb2]{display:block}#burger-icon[data-astro-cid-j2devmb2]{display:none!important}#percent[data-astro-cid-j2devmb2]{display:flex}}</style>
+<style data-vite-dev-id="/Users/sebastian/Documents/astro-portfolio/src/layouts/Layout.astro?astro&amp;type=style&amp;index=0&amp;lang.css">html,body{background-image:url(/src/assets/bg.jpg);background-size:cover;background-position:center;background-repeat:no-repeat;margin:0;width:100%;height:100dvh;display:grid;justify-content:center;grid-template-rows:auto 1fr;grid-template-columns:1fr;align-items:center;grid-template-areas:"header" "main"}@media (min-width: 768px){html,body{grid-template-rows:auto 1fr auto;grid-template-columns:1fr;grid-template-areas:"header" "main" "nav"}}</style>
+<style data-vite-dev-id="/Users/sebastian/Documents/astro-portfolio/src/components/AboutMe.astro?astro&amp;type=style&amp;index=0&amp;lang.css">@keyframes textAnimation{0%{stroke-width:0;stroke-dashoffset:50}80%{stroke-width:0.1;fill:transparent}100%{fill:#ffffff;stroke-width:0;stroke-dashoffset:0}}@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}main[data-astro-cid-jlz3adq6]{opacity:1;transition:opacity 5s ease-out;@starting-style{scale:0;opacity:0}}.banner[data-astro-cid-jlz3adq6]{display:flex;justify-content:center;align-items:center;position:relative;overflow:hidden}.banner[data-astro-cid-jlz3adq6]>div[data-astro-cid-jlz3adq6]{position:relative;width:100%;display:flex;justify-content:center;align-items:center}.banner[data-astro-cid-jlz3adq6]>div[data-astro-cid-jlz3adq6] svg[data-astro-cid-jlz3adq6]{width:100%;height:auto}.banner[data-astro-cid-jlz3adq6]>div[data-astro-cid-jlz3adq6] svg[data-astro-cid-jlz3adq6] path[data-astro-cid-jlz3adq6]{fill:transparent;stroke:#ffffff;stroke-dasharray:50;stroke-dashoffset:50;animation:textAnimation 3s ease-in-out 1 forwards;z-index:999999}.scroll-btn[data-astro-cid-jlz3adq6]{background:none;border:none;color:white;cursor:pointer;padding:10px;display:flex;justify-content:center;align-items:center;transition:all 0.3s ease}.arrow-icon[data-astro-cid-jlz3adq6]{animation:bounce 2s infinite;opacity:0.8;transition:opacity 0.3s ease}.scroll-btn[data-astro-cid-jlz3adq6]:hover .arrow-icon[data-astro-cid-jlz3adq6]{opacity:1;animation:bounce 1.5s infinite}</style><script type="module" src="Sebastian%20Molina%20-%20Portfolio_files/client.js" data-astro-exec=""></script>
+<script type="module" src="Sebastian%20Molina%20-%20Portfolio_files/Window.js" data-astro-exec=""></script>
+<script type="module" src="Sebastian%20Molina%20-%20Portfolio_files/ClientRouter_002.js" data-astro-exec=""></script>
+<script type="module" src="Sebastian%20Molina%20-%20Portfolio_files/NavBar_002.js" data-astro-exec=""></script>
+<script type="module" src="Sebastian%20Molina%20-%20Portfolio_files/global.css" data-astro-exec=""></script>
+<script type="module" src="Sebastian%20Molina%20-%20Portfolio_files/Header.js" data-astro-exec=""></script>
+<script type="module" src="Sebastian%20Molina%20-%20Portfolio_files/Layout.js" data-astro-exec=""></script>
+<script type="module" src="Sebastian%20Molina%20-%20Portfolio_files/AboutMe.js" data-astro-exec=""></script></head> <body data-astro-cid-sckkx6r4=""> <header class="flex items-center justify-between p-4 bg-black text-white" id="header" data-astro-cid-j2devmb2=""> <h1 class="font-bold" data-astro-cid-j2devmb2="">Sebastian Molina</h1> <h1 class="capitalize hidden" id="date" data-astro-cid-j2devmb2="">7 ene, 17:19</h1> <section class="hidden justify-center items-center" id="percent" data-astro-cid-j2devmb2=""> <h1 data-astro-cid-j2devmb2="">100%</h1> <svg width="24" height="24" data-astro-cid-j2devmb2="true" data-icon="battery">   <symbol id="ai:local:battery" viewBox="0 0 24 24"><path fill="currentColor" d="M16.5 19h-1.55q-.3 0-.437-.262t.037-.513l2.5-3.575q.125-.15.288-.1t.162.25V17h1.55q.3 0 .438.263t-.038.512l-2.5 3.575q-.125.15-.288.1t-.162-.25zM8 22q-.425 0-.712-.288T7 21V5q0-.425.288-.712T8 4h2V3q0-.425.288-.712T11 2h2q.425 0 .713.288T14 3v1h2q.425 0 .713.288T17 5v6.325q0 .275-.2.475t-.475.25q-1.05.125-1.95.562t-1.6 1.138q-.8.8-1.287 1.888T11 18q0 .75.175 1.45t.525 1.35q.2.425 0 .813t-.625.387z"></path></symbol><use href="#ai:local:battery"></use>  </svg> </section> <svg width="32" height="32" class="cursor-pointer burger-icon" id="burger-icon" data-astro-cid-j2devmb2="true" data-icon="burger">   <symbol id="ai:local:burger" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M20.75 7a.75.75 0 0 1-.75.75H4a.75.75 0 0 1 0-1.5h16a.75.75 0 0 1 .75.75m0 5a.75.75 0 0 1-.75.75H4a.75.75 0 0 1 0-1.5h16a.75.75 0 0 1 .75.75m0 5a.75.75 0 0 1-.75.75H4a.75.75 0 0 1 0-1.5h16a.75.75 0 0 1 .75.75" clip-rule="evenodd"></path></symbol><use href="#ai:local:burger"></use>  </svg> </header> <section class="absolute hidden px-2" id="menu-burger" data-astro-cid-j2devmb2=""> <div class="w-full flex justify-end" data-astro-cid-j2devmb2=""> <svg width="32" height="32" class="m-4 cursor-pointer close-icon text-white" data-astro-cid-j2devmb2="true" data-icon="close">   <symbol id="ai:local:close" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><path d="m12.593 23.258-.011.002-.071.035-.02.004-.014-.004-.071-.035q-.016-.005-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427q-.004-.016-.017-.018m.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093q.019.005.029-.008l.004-.014-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014-.034.614q.001.018.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01z"></path><path fill="currentColor" d="m12 14.122 5.303 5.303a1.5 1.5 0 0 0 2.122-2.122L14.12 12l5.304-5.303a1.5 1.5 0 1 0-2.122-2.121L12 9.879 6.697 4.576a1.5 1.5 0 1 0-2.122 2.12L9.88 12l-5.304 5.304a1.5 1.5 0 1 0 2.122 2.12z"></path></g></symbol><use href="#ai:local:close"></use>  </svg> </div> <nav class="flex flex-col gap-4 p-4 text-white" data-astro-cid-j2devmb2=""> <div class="p-4 border border-x-0 border-t-0 border-b-white/20 hover:bg-white/10 cursor-pointer" data-window-id="container" data-astro-cid-j2devmb2=""> Sobre Mi </div><div class="p-4 border border-x-0 border-t-0 border-b-white/20 hover:bg-white/10 cursor-pointer" data-window-id="container2" data-astro-cid-j2devmb2=""> Experiencia </div><div class="p-4 border border-x-0 border-t-0 border-b-white/20 hover:bg-white/10 cursor-pointer" data-window-id="container3" data-astro-cid-j2devmb2=""> Proyectos </div><div class="p-4 border border-x-0 border-t-0 border-b-white/20 hover:bg-white/10 cursor-pointer" data-window-id="container4" data-astro-cid-j2devmb2=""> Contacto </div> </nav> </section> <script type="module" src="Sebastian%20Molina%20-%20Portfolio_files/Header_002.js" data-astro-exec=""></script> <script type="module" src="Sebastian%20Molina%20-%20Portfolio_files/Header_003.js" data-astro-exec=""></script>   <div id="container" class="window-container overflow-y-hidden mb-8" data-astro-cid-t4ujtgoe=""> <section class="window-header text-white font-bold w-full bg-white/90 rounded-t-md py-1 px-4 cursor-grab active:cursor-grabbing" data-astro-cid-t4ujtgoe=""> <h1 data-astro-cid-t4ujtgoe=""> Sobre Mi </h1> <div class="flex" data-astro-cid-t4ujtgoe=""> <svg width="24" height="24" class="mr-4 cursor-pointer" id="minimize-container" data-astro-cid-t4ujtgoe="true" data-icon="minimize">   <symbol id="ai:local:minimize" viewBox="0 0 24 24"><path fill="currentColor" d="M5 12.5v-1h14v1z"></path></symbol><use href="#ai:local:minimize"></use>  </svg> <svg width="24" height="24" viewBox="0 0 24 24" id="close-container" class="cursor-pointer" data-astro-cid-t4ujtgoe="true" data-icon="close">   <use href="#ai:local:close"></use>  </svg> </div> </section> <main id="window-container" class="window grid w-full h-full items-center border overflow-y-scroll border-white/20 rounded-md shadow-lg" data-astro-cid-t4ujtgoe="">  <div class="flex flex-col h-full items-center justify-center" data-astro-cid-jlz3adq6=""> <section class="banner" id="banner-section" data-astro-cid-jlz3adq6=""> <div class="title" data-astro-cid-jlz3adq6=""> <svg width="600" height="600" viewBox="0 0 339 42" fill="none" xmlns="http://www.w3.org/2000/svg" data-astro-cid-jlz3adq6=""> <path d="M10.016 23.384C8.224 23.384 6.50667 23.1493 4.864 22.68C3.22133 22.1893 1.89867 21.56 0.896 20.792L2.656 16.888C3.616 17.5707 4.74667 18.136 6.048 18.584C7.37067 19.0107 8.704 19.224 10.048 19.224C11.072 19.224 11.8933 19.128 12.512 18.936C13.152 18.7227 13.6213 18.4347 13.92 18.072C14.2187 17.7093 14.368 17.2933 14.368 16.824C14.368 16.2267 14.1333 15.7573 13.664 15.416C13.1947 15.0533 12.576 14.7653 11.808 14.552C11.04 14.3173 10.1867 14.104 9.248 13.912C8.33067 13.6987 7.40267 13.4427 6.464 13.144C5.54667 12.8453 4.704 12.4613 3.936 11.992C3.168 11.5227 2.53867 10.904 2.048 10.136C1.57867 9.368 1.344 8.38667 1.344 7.192C1.344 5.912 1.68533 4.74933 2.368 3.704C3.072 2.63733 4.11733 1.79467 5.504 1.176C6.912 0.535999 8.672 0.216 10.784 0.216C12.192 0.216 13.5787 0.386666 14.944 0.727999C16.3093 1.048 17.5147 1.53867 18.56 2.2L16.96 6.136C15.9147 5.53867 14.8693 5.10133 13.824 4.824C12.7787 4.52533 11.7547 4.376 10.752 4.376C9.74933 4.376 8.928 4.49333 8.288 4.728C7.648 4.96267 7.18933 5.272 6.912 5.656C6.63467 6.01867 6.496 6.44533 6.496 6.936C6.496 7.512 6.73067 7.98133 7.2 8.344C7.66933 8.68533 8.288 8.96267 9.056 9.176C9.824 9.38933 10.6667 9.60267 11.584 9.816C12.5227 10.0293 13.4507 10.2747 14.368 10.552C15.3067 10.8293 16.16 11.2027 16.928 11.672C17.696 12.1413 18.3147 12.76 18.784 13.528C19.2747 14.296 19.52 15.2667 19.52 16.44C19.52 17.6987 19.168 18.8507 18.464 19.896C17.76 20.9413 16.704 21.784 15.296 22.424C13.9093 23.064 12.1493 23.384 10.016 23.384ZM27.8303 9.624H38.6143V13.656H27.8303V9.624ZM28.2143 18.84H40.4062V23H23.0623V0.599998H39.9903V4.76H28.2143V18.84ZM44.531 23V0.599998H55.475C58.291 0.599998 60.403 1.13333 61.811 2.2C63.2403 3.26667 63.955 4.67467 63.955 6.424C63.955 7.59733 63.667 8.62133 63.091 9.496C62.515 10.3493 61.7257 11.0107 60.723 11.48C59.7203 11.9493 58.5683 12.184 57.267 12.184L57.875 10.872C59.283 10.872 60.531 11.1067 61.619 11.576C62.707 12.024 63.5497 12.696 64.147 13.592C64.7657 14.488 65.075 15.5867 65.075 16.888C65.075 18.808 64.3177 20.312 62.803 21.4C61.2883 22.4667 59.059 23 56.115 23H44.531ZM49.683 19.096H55.731C57.075 19.096 58.0883 18.8827 58.771 18.456C59.475 18.008 59.827 17.304 59.827 16.344C59.827 15.4053 59.475 14.712 58.771 14.264C58.0883 13.7947 57.075 13.56 55.731 13.56H49.299V9.784H54.835C56.0937 9.784 57.0537 9.57067 57.715 9.144C58.3977 8.696 58.739 8.024 58.739 7.128C58.739 6.25333 58.3977 5.60267 57.715 5.176C57.0537 4.728 56.0937 4.504 54.835 4.504H49.683V19.096ZM66.0557 23L76.0398 0.599998H81.1598L91.1758 23H85.7358L77.5438 3.224H79.5918L71.3678 23H66.0557ZM71.0477 18.2L72.4238 14.264H83.9438L85.3518 18.2H71.0477ZM100.86 23.384C99.0678 23.384 97.3504 23.1493 95.7078 22.68C94.0651 22.1893 92.7424 21.56 91.7398 20.792L93.4998 16.888C94.4598 17.5707 95.5904 18.136 96.8918 18.584C98.2144 19.0107 99.5478 19.224 100.892 19.224C101.916 19.224 102.737 19.128 103.356 18.936C103.996 18.7227 104.465 18.4347 104.764 18.072C105.062 17.7093 105.212 17.2933 105.212 16.824C105.212 16.2267 104.977 15.7573 104.508 15.416C104.038 15.0533 103.42 14.7653 102.652 14.552C101.884 14.3173 101.03 14.104 100.092 13.912C99.1744 13.6987 98.2464 13.4427 97.3078 13.144C96.3904 12.8453 95.5478 12.4613 94.7798 11.992C94.0118 11.5227 93.3824 10.904 92.8918 10.136C92.4224 9.368 92.1878 8.38667 92.1878 7.192C92.1878 5.912 92.5291 4.74933 93.2118 3.704C93.9158 2.63733 94.9611 1.79467 96.3478 1.176C97.7558 0.535999 99.5158 0.216 101.628 0.216C103.036 0.216 104.422 0.386666 105.788 0.727999C107.153 1.048 108.358 1.53867 109.404 2.2L107.804 6.136C106.758 5.53867 105.713 5.10133 104.668 4.824C103.622 4.52533 102.598 4.376 101.596 4.376C100.593 4.376 99.7718 4.49333 99.1318 4.728C98.4918 4.96267 98.0331 5.272 97.7558 5.656C97.4784 6.01867 97.3398 6.44533 97.3398 6.936C97.3398 7.512 97.5744 7.98133 98.0438 8.344C98.5131 8.68533 99.1318 8.96267 99.8998 9.176C100.668 9.38933 101.51 9.60267 102.428 9.816C103.366 10.0293 104.294 10.2747 105.212 10.552C106.15 10.8293 107.004 11.2027 107.772 11.672C108.54 12.1413 109.158 12.76 109.628 13.528C110.118 14.296 110.364 15.2667 110.364 16.44C110.364 17.6987 110.012 18.8507 109.308 19.896C108.604 20.9413 107.548 21.784 106.14 22.424C104.753 23.064 102.993 23.384 100.86 23.384ZM118.234 23V4.824H111.066V0.599998H130.586V4.824H123.418V23H118.234ZM133.375 23V0.599998H138.559V23H133.375ZM140.931 23L150.915 0.599998H156.035L166.051 23H160.611L152.419 3.224H154.467L146.243 23H140.931ZM145.923 18.2L147.299 14.264H158.819L160.227 18.2H145.923ZM168.375 23V0.599998H172.663L185.879 16.728H183.799V0.599998H188.919V23H184.663L171.415 6.872H173.495V23H168.375ZM203.281 23V0.599998H207.569L217.105 16.408H214.833L224.209 0.599998H228.465L228.529 23H223.665L223.633 8.056H224.529L217.041 20.632H214.705L207.057 8.056H208.145V23H203.281ZM244.724 23.384C242.953 23.384 241.31 23.096 239.796 22.52C238.302 21.944 237.001 21.1333 235.891 20.088C234.804 19.0427 233.95 17.816 233.332 16.408C232.734 15 232.436 13.464 232.436 11.8C232.436 10.136 232.734 8.6 233.332 7.192C233.95 5.784 234.814 4.55733 235.924 3.512C237.033 2.46667 238.334 1.656 239.828 1.08C241.321 0.503999 242.942 0.216 244.692 0.216C246.462 0.216 248.083 0.503999 249.556 1.08C251.049 1.656 252.34 2.46667 253.428 3.512C254.537 4.55733 255.401 5.784 256.02 7.192C256.638 8.57867 256.948 10.1147 256.948 11.8C256.948 13.464 256.638 15.0107 256.02 16.44C255.401 17.848 254.537 19.0747 253.428 20.12C252.34 21.144 251.049 21.944 249.556 22.52C248.083 23.096 246.473 23.384 244.724 23.384ZM244.692 18.968C245.694 18.968 246.612 18.7973 247.444 18.456C248.297 18.1147 249.044 17.624 249.684 16.984C250.324 16.344 250.814 15.5867 251.156 14.712C251.518 13.8373 251.7 12.8667 251.7 11.8C251.7 10.7333 251.518 9.76267 251.156 8.888C250.814 8.01333 250.324 7.256 249.684 6.616C249.065 5.976 248.329 5.48533 247.476 5.144C246.622 4.80267 245.694 4.632 244.692 4.632C243.689 4.632 242.761 4.80267 241.908 5.144C241.076 5.48533 240.34 5.976 239.7 6.616C239.06 7.256 238.558 8.01333 238.196 8.888C237.854 9.76267 237.684 10.7333 237.684 11.8C237.684 12.8453 237.854 13.816 238.196 14.712C238.558 15.5867 239.049 16.344 239.668 16.984C240.308 17.624 241.054 18.1147 241.908 18.456C242.761 18.7973 243.689 18.968 244.692 18.968ZM260.844 23V0.599998H266.028V18.776H277.26V23H260.844ZM280.156 23V0.599998H285.34V23H280.156ZM290.656 23V0.599998H294.944L308.16 16.728H306.08V0.599998H311.2V23H306.944L293.696 6.872H295.776V23H290.656ZM313.556 23L323.54 0.599998H328.66L338.676 23H333.236L325.044 3.224H327.092L318.868 23H313.556ZM318.548 18.2L319.924 14.264H331.444L332.852 18.2H318.548ZM24.922 41.12C23.77 41.12 22.866 40.796 22.21 40.148C21.562 39.5 21.238 38.564 21.238 37.34V32.6H22.798V37.28C22.798 38.144 22.982 38.772 23.35 39.164C23.726 39.556 24.254 39.752 24.934 39.752C25.614 39.752 26.138 39.556 26.506 39.164C26.874 38.772 27.058 38.144 27.058 37.28V32.6H28.594V37.34C28.594 38.564 28.266 39.5 27.61 40.148C26.962 40.796 26.066 41.12 24.922 41.12ZM31.4988 41V32.6H32.7828L38.0508 39.068H37.4148V32.6H38.9628V41H37.6788L32.4108 34.532H33.0468V41H31.4988ZM45.97 41V32.6H49.642C50.554 32.6 51.354 32.776 52.042 33.128C52.73 33.48 53.266 33.968 53.65 34.592C54.034 35.216 54.226 35.952 54.226 36.8C54.226 37.64 54.034 38.376 53.65 39.008C53.266 39.632 52.73 40.12 52.042 40.472C51.354 40.824 50.554 41 49.642 41H45.97ZM47.53 39.68H49.57C50.202 39.68 50.746 39.56 51.202 39.32C51.666 39.08 52.022 38.744 52.27 38.312C52.526 37.88 52.654 37.376 52.654 36.8C52.654 36.216 52.526 35.712 52.27 35.288C52.022 34.856 51.666 34.52 51.202 34.28C50.746 34.04 50.202 33.92 49.57 33.92H47.53V39.68ZM58.0441 36.092H62.2201V37.376H58.0441V36.092ZM58.1641 39.692H62.9041V41H56.6041V32.6H62.7361V33.908H58.1641V39.692ZM67.9672 41.12C67.3112 41.12 66.6832 41.028 66.0832 40.844C65.4832 40.652 65.0072 40.408 64.6552 40.112L65.1952 38.9C65.5312 39.164 65.9472 39.384 66.4432 39.56C66.9392 39.736 67.4472 39.824 67.9672 39.824C68.4072 39.824 68.7632 39.776 69.0352 39.68C69.3072 39.584 69.5072 39.456 69.6352 39.296C69.7632 39.128 69.8272 38.94 69.8272 38.732C69.8272 38.476 69.7352 38.272 69.5512 38.12C69.3672 37.96 69.1272 37.836 68.8312 37.748C68.5432 37.652 68.2192 37.564 67.8592 37.484C67.5072 37.404 67.1512 37.312 66.7912 37.208C66.4392 37.096 66.1152 36.956 65.8192 36.788C65.5312 36.612 65.2952 36.38 65.1112 36.092C64.9272 35.804 64.8352 35.436 64.8352 34.988C64.8352 34.532 64.9552 34.116 65.1952 33.74C65.4432 33.356 65.8152 33.052 66.3112 32.828C66.8152 32.596 67.4512 32.48 68.2192 32.48C68.7232 32.48 69.2232 32.544 69.7192 32.672C70.2152 32.8 70.6472 32.984 71.0152 33.224L70.5232 34.436C70.1472 34.212 69.7592 34.048 69.3592 33.944C68.9592 33.832 68.5752 33.776 68.2072 33.776C67.7752 33.776 67.4232 33.828 67.1512 33.932C66.8872 34.036 66.6912 34.172 66.5632 34.34C66.4432 34.508 66.3832 34.7 66.3832 34.916C66.3832 35.172 66.4712 35.38 66.6472 35.54C66.8312 35.692 67.0672 35.812 67.3552 35.9C67.6512 35.988 67.9792 36.076 68.3392 36.164C68.6992 36.244 69.0552 36.336 69.4072 36.44C69.7672 36.544 70.0912 36.68 70.3792 36.848C70.6752 37.016 70.9112 37.244 71.0872 37.532C71.2712 37.82 71.3632 38.184 71.3632 38.624C71.3632 39.072 71.2392 39.488 70.9912 39.872C70.7512 40.248 70.3792 40.552 69.8752 40.784C69.3712 41.008 68.7352 41.12 67.9672 41.12ZM72.442 41L76.222 32.6H77.758L81.55 41H79.918L76.666 33.428H77.29L74.05 41H72.442ZM74.182 39.056L74.602 37.832H79.138L79.558 39.056H74.182ZM83.3383 41V32.6H86.7943C87.5383 32.6 88.1743 32.72 88.7023 32.96C89.2383 33.2 89.6503 33.544 89.9383 33.992C90.2263 34.44 90.3703 34.972 90.3703 35.588C90.3703 36.204 90.2263 36.736 89.9383 37.184C89.6503 37.624 89.2383 37.964 88.7023 38.204C88.1743 38.436 87.5383 38.552 86.7943 38.552H84.2023L84.8983 37.844V41H83.3383ZM88.8343 41L86.7103 37.952H88.3783L90.5143 41H88.8343ZM84.8983 38.012L84.2023 37.268H86.7223C87.4103 37.268 87.9263 37.12 88.2703 36.824C88.6223 36.528 88.7983 36.116 88.7983 35.588C88.7983 35.052 88.6223 34.64 88.2703 34.352C87.9263 34.064 87.4103 33.92 86.7223 33.92H84.2023L84.8983 33.152V38.012ZM92.8357 41V32.6H96.2917C97.0357 32.6 97.6717 32.72 98.1997 32.96C98.7357 33.2 99.1477 33.544 99.4357 33.992C99.7237 34.44 99.8677 34.972 99.8677 35.588C99.8677 36.204 99.7237 36.736 99.4357 37.184C99.1477 37.624 98.7357 37.964 98.1997 38.204C97.6717 38.436 97.0357 38.552 96.2917 38.552H93.6997L94.3957 37.844V41H92.8357ZM98.3317 41L96.2077 37.952H97.8757L100.012 41H98.3317ZM94.3957 38.012L93.6997 37.268H96.2197C96.9077 37.268 97.4237 37.12 97.7677 36.824C98.1197 36.528 98.2957 36.116 98.2957 35.588C98.2957 35.052 98.1197 34.64 97.7677 34.352C97.4237 34.064 96.9077 33.92 96.2197 33.92H93.6997L94.3957 33.152V38.012ZM106.269 41.12C105.613 41.12 105.009 41.012 104.457 40.796C103.905 40.58 103.425 40.28 103.017 39.896C102.609 39.504 102.293 39.048 102.069 38.528C101.845 38 101.733 37.424 101.733 36.8C101.733 36.176 101.845 35.604 102.069 35.084C102.293 34.556 102.609 34.1 103.017 33.716C103.425 33.324 103.905 33.02 104.457 32.804C105.009 32.588 105.609 32.48 106.257 32.48C106.913 32.48 107.513 32.588 108.057 32.804C108.609 33.02 109.089 33.324 109.497 33.716C109.905 34.1 110.221 34.556 110.445 35.084C110.669 35.604 110.781 36.176 110.781 36.8C110.781 37.424 110.669 38 110.445 38.528C110.221 39.056 109.905 39.512 109.497 39.896C109.089 40.28 108.609 40.58 108.057 40.796C107.513 41.012 106.917 41.12 106.269 41.12ZM106.257 39.752C106.681 39.752 107.073 39.68 107.433 39.536C107.793 39.392 108.105 39.188 108.369 38.924C108.633 38.652 108.837 38.34 108.981 37.988C109.133 37.628 109.209 37.232 109.209 36.8C109.209 36.368 109.133 35.976 108.981 35.624C108.837 35.264 108.633 34.952 108.369 34.688C108.105 34.416 107.793 34.208 107.433 34.064C107.073 33.92 106.681 33.848 106.257 33.848C105.833 33.848 105.441 33.92 105.081 34.064C104.729 34.208 104.417 34.416 104.145 34.688C103.881 34.952 103.673 35.264 103.521 35.624C103.377 35.976 103.305 36.368 103.305 36.8C103.305 37.224 103.377 37.616 103.521 37.976C103.673 38.336 103.881 38.652 104.145 38.924C104.409 39.188 104.721 39.392 105.081 39.536C105.441 39.68 105.833 39.752 106.257 39.752ZM113.155 41V32.6H114.715V39.68H119.107V41H113.155ZM121.058 41V32.6H122.618V39.68H127.01V41H121.058ZM127.785 41L131.565 32.6H133.101L136.893 41H135.261L132.009 33.428H132.633L129.393 41H127.785ZM129.525 39.056L129.945 37.832H134.481L134.901 39.056H129.525ZM138.682 41V32.6H142.354C143.266 32.6 144.066 32.776 144.754 33.128C145.442 33.48 145.978 33.968 146.362 34.592C146.746 35.216 146.938 35.952 146.938 36.8C146.938 37.64 146.746 38.376 146.362 39.008C145.978 39.632 145.442 40.12 144.754 40.472C144.066 40.824 143.266 41 142.354 41H138.682ZM140.242 39.68H142.282C142.914 39.68 143.458 39.56 143.914 39.32C144.378 39.08 144.734 38.744 144.982 38.312C145.238 37.88 145.366 37.376 145.366 36.8C145.366 36.216 145.238 35.712 144.982 35.288C144.734 34.856 144.378 34.52 143.914 34.28C143.458 34.04 142.914 33.92 142.282 33.92H140.242V39.68ZM153.252 41.12C152.596 41.12 151.992 41.012 151.44 40.796C150.888 40.58 150.408 40.28 150 39.896C149.592 39.504 149.276 39.048 149.052 38.528C148.828 38 148.716 37.424 148.716 36.8C148.716 36.176 148.828 35.604 149.052 35.084C149.276 34.556 149.592 34.1 150 33.716C150.408 33.324 150.888 33.02 151.44 32.804C151.992 32.588 152.592 32.48 153.24 32.48C153.896 32.48 154.496 32.588 155.04 32.804C155.592 33.02 156.072 33.324 156.48 33.716C156.888 34.1 157.204 34.556 157.428 35.084C157.652 35.604 157.764 36.176 157.764 36.8C157.764 37.424 157.652 38 157.428 38.528C157.204 39.056 156.888 39.512 156.48 39.896C156.072 40.28 155.592 40.58 155.04 40.796C154.496 41.012 153.9 41.12 153.252 41.12ZM153.24 39.752C153.664 39.752 154.056 39.68 154.416 39.536C154.776 39.392 155.088 39.188 155.352 38.924C155.616 38.652 155.82 38.34 155.964 37.988C156.116 37.628 156.192 37.232 156.192 36.8C156.192 36.368 156.116 35.976 155.964 35.624C155.82 35.264 155.616 34.952 155.352 34.688C155.088 34.416 154.776 34.208 154.416 34.064C154.056 33.92 153.664 33.848 153.24 33.848C152.816 33.848 152.424 33.92 152.064 34.064C151.712 34.208 151.4 34.416 151.128 34.688C150.864 34.952 150.656 35.264 150.504 35.624C150.36 35.976 150.288 36.368 150.288 36.8C150.288 37.224 150.36 37.616 150.504 37.976C150.656 38.336 150.864 38.652 151.128 38.924C151.392 39.188 151.704 39.392 152.064 39.536C152.424 39.68 152.816 39.752 153.24 39.752ZM160.137 41V32.6H163.593C164.337 32.6 164.973 32.72 165.501 32.96C166.037 33.2 166.449 33.544 166.737 33.992C167.025 34.44 167.169 34.972 167.169 35.588C167.169 36.204 167.025 36.736 166.737 37.184C166.449 37.624 166.037 37.964 165.501 38.204C164.973 38.436 164.337 38.552 163.593 38.552H161.001L161.697 37.844V41H160.137ZM165.633 41L163.509 37.952H165.177L167.313 41H165.633ZM161.697 38.012L161.001 37.268H163.521C164.209 37.268 164.725 37.12 165.069 36.824C165.421 36.528 165.597 36.116 165.597 35.588C165.597 35.052 165.421 34.64 165.069 34.352C164.725 34.064 164.209 33.92 163.521 33.92H161.001L161.697 33.152V38.012ZM175.651 41L172.867 32.6H174.487L176.971 40.196H176.167L178.747 32.6H180.187L182.695 40.196H181.915L184.459 32.6H185.947L183.163 41H181.507L179.215 34.148H179.647L177.319 41H175.651ZM189.378 36.092H193.554V37.376H189.378V36.092ZM189.498 39.692H194.238V41H187.938V32.6H194.07V33.908H189.498V39.692ZM196.697 41V32.6H200.633C201.641 32.6 202.409 32.8 202.937 33.2C203.465 33.592 203.729 34.12 203.729 34.784C203.729 35.232 203.625 35.616 203.417 35.936C203.209 36.248 202.929 36.492 202.577 36.668C202.233 36.836 201.857 36.92 201.449 36.92L201.665 36.488C202.137 36.488 202.561 36.576 202.937 36.752C203.313 36.92 203.609 37.168 203.825 37.496C204.049 37.824 204.161 38.232 204.161 38.72C204.161 39.44 203.885 40 203.333 40.4C202.781 40.8 201.961 41 200.873 41H196.697ZM198.257 39.776H200.777C201.361 39.776 201.809 39.68 202.121 39.488C202.433 39.296 202.589 38.988 202.589 38.564C202.589 38.148 202.433 37.844 202.121 37.652C201.809 37.452 201.361 37.352 200.777 37.352H198.137V36.14H200.465C201.009 36.14 201.425 36.044 201.713 35.852C202.009 35.66 202.157 35.372 202.157 34.988C202.157 34.596 202.009 34.304 201.713 34.112C201.425 33.92 201.009 33.824 200.465 33.824H198.257V39.776ZM209.394 41L213.174 32.6H214.71L218.502 41H216.87L213.618 33.428H214.242L211.002 41H209.394ZM211.134 39.056L211.554 37.832H216.09L216.51 39.056H211.134ZM226.031 41V33.92H223.247V32.6H230.375V33.92H227.591V41H226.031ZM235.725 41.12C234.573 41.12 233.669 40.796 233.013 40.148C232.365 39.5 232.041 38.564 232.041 37.34V32.6H233.601V37.28C233.601 38.144 233.785 38.772 234.153 39.164C234.529 39.556 235.057 39.752 235.737 39.752C236.417 39.752 236.941 39.556 237.309 39.164C237.677 38.772 237.861 38.144 237.861 37.28V32.6H239.397V37.34C239.397 38.564 239.069 39.5 238.413 40.148C237.765 40.796 236.869 41.12 235.725 41.12ZM248.943 41.12C248.287 41.12 247.659 41.028 247.059 40.844C246.459 40.652 245.983 40.408 245.631 40.112L246.171 38.9C246.507 39.164 246.923 39.384 247.419 39.56C247.915 39.736 248.423 39.824 248.943 39.824C249.383 39.824 249.739 39.776 250.011 39.68C250.283 39.584 250.483 39.456 250.611 39.296C250.739 39.128 250.803 38.94 250.803 38.732C250.803 38.476 250.711 38.272 250.527 38.12C250.343 37.96 250.103 37.836 249.807 37.748C249.519 37.652 249.195 37.564 248.835 37.484C248.483 37.404 248.127 37.312 247.767 37.208C247.415 37.096 247.091 36.956 246.795 36.788C246.507 36.612 246.271 36.38 246.087 36.092C245.903 35.804 245.811 35.436 245.811 34.988C245.811 34.532 245.931 34.116 246.171 33.74C246.419 33.356 246.791 33.052 247.287 32.828C247.791 32.596 248.427 32.48 249.195 32.48C249.699 32.48 250.199 32.544 250.695 32.672C251.191 32.8 251.623 32.984 251.991 33.224L251.499 34.436C251.123 34.212 250.735 34.048 250.335 33.944C249.935 33.832 249.551 33.776 249.183 33.776C248.751 33.776 248.399 33.828 248.127 33.932C247.863 34.036 247.667 34.172 247.539 34.34C247.419 34.508 247.359 34.7 247.359 34.916C247.359 35.172 247.447 35.38 247.623 35.54C247.807 35.692 248.043 35.812 248.331 35.9C248.627 35.988 248.955 36.076 249.315 36.164C249.675 36.244 250.031 36.336 250.383 36.44C250.743 36.544 251.067 36.68 251.355 36.848C251.651 37.016 251.887 37.244 252.063 37.532C252.247 37.82 252.339 38.184 252.339 38.624C252.339 39.072 252.215 39.488 251.967 39.872C251.727 40.248 251.355 40.552 250.851 40.784C250.347 41.008 249.711 41.12 248.943 41.12ZM256.046 36.092H260.222V37.376H256.046V36.092ZM256.166 39.692H260.906V41H254.606V32.6H260.738V33.908H256.166V39.692ZM263.365 41V32.6H266.821C267.565 32.6 268.201 32.72 268.729 32.96C269.265 33.2 269.677 33.544 269.965 33.992C270.253 34.44 270.397 34.972 270.397 35.588C270.397 36.204 270.253 36.736 269.965 37.184C269.677 37.624 269.265 37.964 268.729 38.204C268.201 38.436 267.565 38.552 266.821 38.552H264.229L264.925 37.844V41H263.365ZM268.861 41L266.737 37.952H268.405L270.541 41H268.861ZM264.925 38.012L264.229 37.268H266.749C267.437 37.268 267.953 37.12 268.297 36.824C268.649 36.528 268.825 36.116 268.825 35.588C268.825 35.052 268.649 34.64 268.297 34.352C267.953 34.064 267.437 33.92 266.749 33.92H264.229L264.925 33.152V38.012ZM275.346 41L271.674 32.6H273.366L276.642 40.196H275.67L278.982 32.6H280.542L276.882 41H275.346ZM282.148 41V32.6H283.708V41H282.148ZM290.588 41.12C289.948 41.12 289.352 41.016 288.8 40.808C288.256 40.592 287.78 40.292 287.372 39.908C286.972 39.516 286.66 39.056 286.436 38.528C286.212 38 286.1 37.424 286.1 36.8C286.1 36.176 286.212 35.6 286.436 35.072C286.66 34.544 286.976 34.088 287.384 33.704C287.792 33.312 288.268 33.012 288.812 32.804C289.356 32.588 289.952 32.48 290.6 32.48C291.288 32.48 291.916 32.6 292.484 32.84C293.052 33.072 293.532 33.42 293.924 33.884L292.916 34.832C292.612 34.504 292.272 34.26 291.896 34.1C291.52 33.932 291.112 33.848 290.672 33.848C290.232 33.848 289.828 33.92 289.46 34.064C289.1 34.208 288.784 34.412 288.512 34.676C288.248 34.94 288.04 35.252 287.888 35.612C287.744 35.972 287.672 36.368 287.672 36.8C287.672 37.232 287.744 37.628 287.888 37.988C288.04 38.348 288.248 38.66 288.512 38.924C288.784 39.188 289.1 39.392 289.46 39.536C289.828 39.68 290.232 39.752 290.672 39.752C291.112 39.752 291.52 39.672 291.896 39.512C292.272 39.344 292.612 39.092 292.916 38.756L293.924 39.716C293.532 40.172 293.052 40.52 292.484 40.76C291.916 41 291.284 41.12 290.588 41.12ZM296.139 41V32.6H297.699V41H296.139ZM304.627 41.12C303.971 41.12 303.367 41.012 302.815 40.796C302.263 40.58 301.783 40.28 301.375 39.896C300.967 39.504 300.651 39.048 300.427 38.528C300.203 38 300.091 37.424 300.091 36.8C300.091 36.176 300.203 35.604 300.427 35.084C300.651 34.556 300.967 34.1 301.375 33.716C301.783 33.324 302.263 33.02 302.815 32.804C303.367 32.588 303.967 32.48 304.615 32.48C305.271 32.48 305.871 32.588 306.415 32.804C306.967 33.02 307.447 33.324 307.855 33.716C308.263 34.1 308.579 34.556 308.803 35.084C309.027 35.604 309.139 36.176 309.139 36.8C309.139 37.424 309.027 38 308.803 38.528C308.579 39.056 308.263 39.512 307.855 39.896C307.447 40.28 306.967 40.58 306.415 40.796C305.871 41.012 305.275 41.12 304.627 41.12ZM304.615 39.752C305.039 39.752 305.431 39.68 305.791 39.536C306.151 39.392 306.463 39.188 306.727 38.924C306.991 38.652 307.195 38.34 307.339 37.988C307.491 37.628 307.567 37.232 307.567 36.8C307.567 36.368 307.491 35.976 307.339 35.624C307.195 35.264 306.991 34.952 306.727 34.688C306.463 34.416 306.151 34.208 305.791 34.064C305.431 33.92 305.039 33.848 304.615 33.848C304.191 33.848 303.799 33.92 303.439 34.064C303.087 34.208 302.775 34.416 302.503 34.688C302.239 34.952 302.031 35.264 301.879 35.624C301.735 35.976 301.663 36.368 301.663 36.8C301.663 37.224 301.735 37.616 301.879 37.976C302.031 38.336 302.239 38.652 302.503 38.924C302.767 39.188 303.079 39.392 303.439 39.536C303.799 39.68 304.191 39.752 304.615 39.752Z" fill="white" data-astro-cid-jlz3adq6=""></path> </svg> </div> </section> <main class="flex hidden p-8 justify-center text-white" id="avatar-section" data-astro-cid-jlz3adq6=""> <img src="Sebastian%20Molina%20-%20Portfolio_files/_image.webp" data-image-component="true" alt="Avatar" data-astro-cid-jlz3adq6="true" loading="lazy" decoding="async" fetchpriority="auto" width="409" height="411" class="w-64 opacity-50 h-64 rounded-full mr-8"> <div class="max-w-xl" data-astro-cid-jlz3adq6=""> <h2 class="text-3xl font-bold mb-4" data-astro-cid-jlz3adq6="">About Me</h2> <p class="mb-4" data-astro-cid-jlz3adq6="">
+Hello! I'm [Your Name], a passionate developer with a love for creating 
+beautiful and functional web applications. With experience in various 
+technologies, I enjoy solving complex problems and continuously learning
+ new skills.
+</p> <p data-astro-cid-jlz3adq6="">
+When I'm not coding, you can find me exploring the outdoors, reading 
+books, or experimenting with new recipes in the kitchen. I'm always 
+excited to connect with like-minded individuals, so feel free to reach 
+out!
+</p> <div class="mt-8 w-full flex justify-between border border-white/20" data-astro-cid-jlz3adq6=""> <p class="flex-1 text-center border-r-2 border-white/20" data-astro-cid-jlz3adq6="">icon</p> <p class="flex-1 text-center border-r-2 border-white/20" data-astro-cid-jlz3adq6="">icon</p> <p class="flex-1 text-center border-r-2 border-white/20" data-astro-cid-jlz3adq6="">icon</p> <p class="flex-1 text-center border-white/20" data-astro-cid-jlz3adq6="">icon</p> </div> </div> </main> </div>   </main> </div> <script data-astro-exec="">(function(){const windowId = "container";
+
+	const closeWindow = document.getElementById(`close-${windowId}`);
+	const minimizeWindow = document.getElementById(`minimize-${windowId}`);
+	const windowContainer = document.getElementById(windowId);
+
+	if (closeWindow) {
+		closeWindow.addEventListener('click', () => {
+			windowContainer.classList.toggle('closed');
+		});
+	}
+	if (minimizeWindow) {
+		minimizeWindow.addEventListener('click', () => {
+			windowContainer.classList.toggle('closed');
+		});
+	}
+})();</script>  <div id="container2" class="window-container overflow-y-hidden mb-8 closed" data-astro-cid-t4ujtgoe=""> <section class="window-header text-white font-bold w-full bg-white/90 rounded-t-md py-1 px-4 cursor-grab active:cursor-grabbing" data-astro-cid-t4ujtgoe=""> <h1 data-astro-cid-t4ujtgoe=""> Experiencia </h1> <div class="flex" data-astro-cid-t4ujtgoe=""> <svg width="24" height="24" viewBox="0 0 24 24" class="mr-4 cursor-pointer" id="minimize-container2" data-astro-cid-t4ujtgoe="true" data-icon="minimize">   <use href="#ai:local:minimize"></use>  </svg> <svg width="24" height="24" viewBox="0 0 24 24" id="close-container2" class="cursor-pointer" data-astro-cid-t4ujtgoe="true" data-icon="close">   <use href="#ai:local:close"></use>  </svg> </div> </section> <main id="window-container2" class="window grid w-full h-full items-center border overflow-y-scroll border-white/20 rounded-md shadow-lg" data-astro-cid-t4ujtgoe="">  <div class="p-4 text-white"> <h2 class="text-2xl font-bold mb-4">Lorem Ipsum</h2> <p>Lorem
+ ipsum dolor sit amet consectetur adipisicing elit. Inventore qui 
+voluptate ut assumenda, saepe architecto obcaecati! A assumenda iure 
+magnam accusamus esse corrupti, nobis pariatur distinctio repellat 
+exercitationem enim laborum?</p> </div>  </main> </div> <script data-astro-exec="">(function(){const windowId = "container2";
+
+	const closeWindow = document.getElementById(`close-${windowId}`);
+	const minimizeWindow = document.getElementById(`minimize-${windowId}`);
+	const windowContainer = document.getElementById(windowId);
+
+	if (closeWindow) {
+		closeWindow.addEventListener('click', () => {
+			windowContainer.classList.toggle('closed');
+		});
+	}
+	if (minimizeWindow) {
+		minimizeWindow.addEventListener('click', () => {
+			windowContainer.classList.toggle('closed');
+		});
+	}
+})();</script>  <div id="container3" class="window-container overflow-y-hidden mb-8 closed" data-astro-cid-t4ujtgoe=""> <section class="window-header text-white font-bold w-full bg-white/90 rounded-t-md py-1 px-4 cursor-grab active:cursor-grabbing" data-astro-cid-t4ujtgoe=""> <h1 data-astro-cid-t4ujtgoe=""> Proyectos </h1> <div class="flex" data-astro-cid-t4ujtgoe=""> <svg width="24" height="24" viewBox="0 0 24 24" class="mr-4 cursor-pointer" id="minimize-container3" data-astro-cid-t4ujtgoe="true" data-icon="minimize">   <use href="#ai:local:minimize"></use>  </svg> <svg width="24" height="24" viewBox="0 0 24 24" id="close-container3" class="cursor-pointer" data-astro-cid-t4ujtgoe="true" data-icon="close">   <use href="#ai:local:close"></use>  </svg> </div> </section> <main id="window-container3" class="window grid w-full h-full items-center border overflow-y-scroll border-white/20 rounded-md shadow-lg" data-astro-cid-t4ujtgoe="">  <div class="p-4 text-white"> <h2 class="text-2xl font-bold mb-4">Lorem Ipsum</h2> <p>Lorem
+ ipsum dolor sit amet consectetur adipisicing elit. Inventore qui 
+voluptate ut assumenda, saepe architecto obcaecati! A assumenda iure 
+magnam accusamus esse corrupti, nobis pariatur distinctio repellat 
+exercitationem enim laborum?</p> </div>  </main> </div> <script data-astro-exec="">(function(){const windowId = "container3";
+
+	const closeWindow = document.getElementById(`close-${windowId}`);
+	const minimizeWindow = document.getElementById(`minimize-${windowId}`);
+	const windowContainer = document.getElementById(windowId);
+
+	if (closeWindow) {
+		closeWindow.addEventListener('click', () => {
+			windowContainer.classList.toggle('closed');
+		});
+	}
+	if (minimizeWindow) {
+		minimizeWindow.addEventListener('click', () => {
+			windowContainer.classList.toggle('closed');
+		});
+	}
+})();</script>  <div id="container4" class="window-container overflow-y-hidden mb-8 closed" data-astro-cid-t4ujtgoe=""> <section class="window-header text-white font-bold w-full bg-white/90 rounded-t-md py-1 px-4 cursor-grab active:cursor-grabbing" data-astro-cid-t4ujtgoe=""> <h1 data-astro-cid-t4ujtgoe=""> Contacto </h1> <div class="flex" data-astro-cid-t4ujtgoe=""> <svg width="24" height="24" viewBox="0 0 24 24" class="mr-4 cursor-pointer" id="minimize-container4" data-astro-cid-t4ujtgoe="true" data-icon="minimize">   <use href="#ai:local:minimize"></use>  </svg> <svg width="24" height="24" viewBox="0 0 24 24" id="close-container4" class="cursor-pointer" data-astro-cid-t4ujtgoe="true" data-icon="close">   <use href="#ai:local:close"></use>  </svg> </div> </section> <main id="window-container4" class="window grid w-full h-full items-center border overflow-y-scroll border-white/20 rounded-md shadow-lg" data-astro-cid-t4ujtgoe="">  <div class="p-4 text-white"> <h2 class="text-2xl font-bold mb-4">Lorem Ipsum</h2> <p>Lorem
+ ipsum dolor sit amet consectetur adipisicing elit. Inventore qui 
+voluptate ut assumenda, saepe architecto obcaecati! A assumenda iure 
+magnam accusamus esse corrupti, nobis pariatur distinctio repellat 
+exercitationem enim laborum?</p> </div>  </main> </div> <script data-astro-exec="">(function(){const windowId = "container4";
+
+	const closeWindow = document.getElementById(`close-${windowId}`);
+	const minimizeWindow = document.getElementById(`minimize-${windowId}`);
+	const windowContainer = document.getElementById(windowId);
+
+	if (closeWindow) {
+		closeWindow.addEventListener('click', () => {
+			windowContainer.classList.toggle('closed');
+		});
+	}
+	if (minimizeWindow) {
+		minimizeWindow.addEventListener('click', () => {
+			windowContainer.classList.toggle('closed');
+		});
+	}
+})();</script>   <nav class="hidden px-4 mb-4 justify-self-center bg-black/30 border border-white/10 rounded-md shadow-lg" id="nav" data-astro-cid-irknx6eh=""> <div id="container" class="container flex items-center gap-12 justify-center p-4 mx-auto" data-astro-cid-irknx6eh=""> <div class="icon-nav flex cursor-pointer flex-col items-center align-middle justify-center" data-color-text="lightblue" data-tooltip-target="Sobre Mi" data-window-id="container" data-astro-cid-irknx6eh=""> <svg width="40" height="40" color="lightblue" class="inline-block mb-1" data-astro-cid-irknx6eh="true" data-icon="user">   <symbol id="ai:local:user" viewBox="0 0 24 24"><g fill="none"><path d="m12.594 23.258-.012.002-.071.035-.02.004-.014-.004-.071-.036q-.016-.004-.024.006l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427q-.004-.016-.016-.018m.264-.113-.014.002-.184.093-.01.01-.003.011.018.43.005.012.008.008.201.092q.019.005.029-.008l.004-.014-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014-.034.614q.001.018.017.024l.015-.002.201-.093.01-.008.003-.011.018-.43-.003-.012-.01-.01z"></path><path fill="currentColor" d="M6 7a5 5 0 1 1 10 0A5 5 0 0 1 6 7m-1.178 7.672C6.425 13.694 8.605 13 11 13q.671 0 1.316.07a1 1 0 0 1 .72 1.557A5.97 5.97 0 0 0 12 18c0 .92.207 1.79.575 2.567a1 1 0 0 1-.89 1.428L11 22c-2.229 0-4.335-.14-5.913-.558-.785-.208-1.524-.506-2.084-.956C2.41 20.01 2 19.345 2 18.5c0-.787.358-1.523.844-2.139.494-.625 1.177-1.2 1.978-1.69ZM16 18a1 1 0 0 1 1-1h.99c.558 0 1.01.452 1.01 1.01v2.124A1 1 0 0 1 18.5 22h-.49A1.01 1.01 0 0 1 17 20.99V19a1 1 0 0 1-1-1m2-4a1 1 0 0 0-.117 1.993l.119.007a1 1 0 0 0 .117-1.993z"></path></g></symbol><use href="#ai:local:user"></use>  </svg> <span id="text-nav" style="color: lightblue" data-astro-cid-irknx6eh="">Sobre Mi</span> </div><div class="icon-nav flex cursor-pointer flex-col items-center align-middle justify-center" data-color-text="#ef476f" data-tooltip-target="Experiencia" data-window-id="container2" data-astro-cid-irknx6eh=""> <svg width="40" height="40" color="#ef476f" class="inline-block mb-1" data-astro-cid-irknx6eh="true" data-icon="experience">   <symbol id="ai:local:experience" viewBox="0 0 24 24"><path fill="currentColor" d="M22 13.478V18a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-4.522l.553.277a21 21 0 0 0 18.897-.002zM14 2a3 3 0 0 1 3 3v1h2a3 3 0 0 1 3 3v2.242l-1.447.724a19 19 0 0 1-16.726.186l-.647-.32-1.18-.59V9a3 3 0 0 1 3-3h2V5a3 3 0 0 1 3-3zm-2 8a1 1 0 0 0-1 1 1 1 0 1 0 2 .01c0-.562-.448-1.01-1-1.01m2-6h-4a1 1 0 0 0-1 1v1h6V5a1 1 0 0 0-1-1"></path></symbol><use href="#ai:local:experience"></use>  </svg> <span id="text-nav" style="color: #ef476f" data-astro-cid-irknx6eh="">Experiencia</span> </div><div class="icon-nav flex cursor-pointer flex-col items-center align-middle justify-center" data-color-text="#ffd166" data-tooltip-target="Proyectos" data-window-id="container3" data-astro-cid-irknx6eh=""> <svg width="40" height="40" color="#ffd166" class="inline-block mb-1" data-astro-cid-irknx6eh="true" data-icon="projects">   <symbol id="ai:local:projects" viewBox="0 0 24 24"><path fill="currentColor" d="M17 3.34A10 10 0 1 1 2 12l.005-.324A10 10 0 0 1 17 3.34m-3.658 5.22a1 1 0 0 0-1.282.598l-2 5.5a1 1 0 0 0 1.88.684l2-5.5a1 1 0 0 0-.598-1.282M9.207 9.793a1 1 0 0 0-1.414 0l-1.5 1.5a1 1 0 0 0 0 1.414l1.5 1.5a1 1 0 0 0 1.414 0l.083-.094a1 1 0 0 0-.083-1.32L8.415 12l.792-.793a1 1 0 0 0 0-1.414m7 0a1 1 0 0 0-1.414 0l-.083.094a1 1 0 0 0 .083 1.32l.792.793-.792.793a1 1 0 0 0 1.414 1.414l1.5-1.5a1 1 0 0 0 0-1.414z"></path></symbol><use href="#ai:local:projects"></use>  </svg> <span id="text-nav" style="color: #ffd166" data-astro-cid-irknx6eh="">Proyectos</span> </div><div class="icon-nav flex cursor-pointer flex-col items-center align-middle justify-center" data-color-text="#06d6a0" data-tooltip-target="Contacto" data-window-id="container4" data-astro-cid-irknx6eh=""> <svg width="40" height="40" color="#06d6a0" class="inline-block mb-1" data-astro-cid-irknx6eh="true" data-icon="contact">   <symbol id="ai:local:contact" viewBox="0 0 24 24"><path fill="currentColor" d="M18 3a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4h-4.724l-4.762 2.857a1 1 0 0 1-1.508-.743L7 21v-2H6a4 4 0 0 1-3.995-3.8L2 15V7a4 4 0 0 1 4-4zm-2.8 9.286a1 1 0 0 0-1.414.014 2.5 2.5 0 0 1-3.572 0 1 1 0 0 0-1.428 1.4 4.5 4.5 0 0 0 6.428 0 1 1 0 0 0-.014-1.414M9.51 8H9.5a1 1 0 1 0 0 2h.01a1 1 0 0 0 0-2m5 0h-.01a1 1 0 0 0 0 2h.01a1 1 0 0 0 0-2"></path></symbol><use href="#ai:local:contact"></use>  </svg> <span id="text-nav" style="color: #06d6a0" data-astro-cid-irknx6eh="">Contacto</span> </div> </div> </nav> <script type="module" src="Sebastian%20Molina%20-%20Portfolio_files/NavBar.js" data-astro-exec=""></script>   </body></html>

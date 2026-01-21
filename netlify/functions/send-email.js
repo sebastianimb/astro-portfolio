@@ -39,8 +39,8 @@ exports.handler = async (event) => {
     }
 
     await resend.emails.send({
-      from: email,
-      to: "cirp8918@gmail.com",
+      from: `${name} <${email}>`,
+      to: ["cirp8918@gmail.com"],
       subject: `Nuevo contacto: ${name}`,
       html: `
         <h2>Nuevo mensaje de contacto</h2>

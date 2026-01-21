@@ -48,7 +48,7 @@ const projects = [
     <div id="container-folder" class="p-4 h-fit">
         { projects.map(({ title, color, id, imgSrc, demo, tools, description }) => {
             return (
-                <div data-project={JSON.stringify({ id, title, imgSrc, demo, tools, description, color })} class="cursor-pointer h-fit max-w-32 flex flex-col text-center" class:list={ `text-${color}-400` } >
+                <div data-project={JSON.stringify({ id, title, imgSrc, demo, tools, description, color })} class={`text-${color}-400 cursor-pointer h-fit max-w-32 flex flex-col text-center`} >
                     <Icon name="folder" size={64} class="self-center"/>
                     <span class="text-wrap text-white/50">{title}</span>
                 </div>

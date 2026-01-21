@@ -41,7 +41,7 @@ exports.handler = async (event) => {
     await resend.emails.send({
       from: email,
       to: "cirp8918@gmail.com",
-      subject: `Nuevo contacto: ${nombre}`,
+      subject: `Nuevo contacto: ${name}`,
       html: `
         <h2>Nuevo mensaje de contacto</h2>
         <p><b>Nombre:</b> ${name}</p>
@@ -61,7 +61,6 @@ exports.handler = async (event) => {
       statusCode: 500,
       headers: { "Access-Control-Allow-Origin": "*" },
       body: JSON.stringify({ error: "Error interno" }),
-      error: { error },
     };
   }
 };

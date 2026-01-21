@@ -61,6 +61,7 @@ exports.handler = async (event) => {
       statusCode: 500,
       headers: { "Access-Control-Allow-Origin": "*" },
       body: JSON.stringify({ error: "Error interno" }),
+      error: { error },
     };
   }
 };

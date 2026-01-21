@@ -11,7 +11,7 @@ const projects = [
         title: "Seguimiento de Solicitudes",
         description: "Proyecto para dar seguimiento a solicitudes de diferentes distribuidores.",
         imgSrc: tracking,
-        color: "teal",
+        color: "#14b8a6",
         demo: "https://demo-tracking-solicitudes.netlify.app/",
         tools: ["javascript", "vue", "sass", "html"]
         },
@@ -20,7 +20,7 @@ const projects = [
         title: "Tienda Online Skin CS2",
         description: "Tienda online para la venta de skins del juego Counter Strike 2.",
         imgSrc: skinopoly,
-        color: "red",
+        color: "#ef4444",
         demo: "https://skinopoly.netlify.app/",
         tools: ["angular", "typescript", "sass", "html"]
         },
@@ -29,7 +29,7 @@ const projects = [
         title: "Búsqueda de Pokemones",
         description: "Aplicación para buscar información sobre diferentes pokemones utilizando una API pública.",
         imgSrc: pokemon,
-        color: "blue",
+        color: "#3b82f6",
         demo: "https://astro-pokemon-search.netlify.app",
         tools: ["astro", "javascript", "tailwind", "css" , "html"]
         },
@@ -38,7 +38,7 @@ const projects = [
         title: "Hechos acerca de gatos",
         description: "Aplicación que muestra hechos interesantes sobre gatos utilizando una API pública.",
         imgSrc: fact,
-        color: "yellow",
+        color: "#eab308",
         demo: "https://cats-fact-react.netlify.app",
         tools: ["typescript", "react", "css", "html"]
     },
@@ -48,8 +48,8 @@ const projects = [
     <div id="container-folder" class="p-4 h-fit">
         { projects.map(({ title, color, id, imgSrc, demo, tools, description }) => {
             return (
-                <div data-project={JSON.stringify({ id, title, imgSrc, demo, tools, description, color })} class={`text-${color}-400 cursor-pointer h-fit max-w-32 flex flex-col text-center`} >
-                    <Icon name="folder" size={64} class="self-center"/>
+                <div data-project={JSON.stringify({ id, title, imgSrc, demo, tools, description, color })} class="cursor-pointer h-fit max-w-32 flex flex-col text-center" >
+                    <Icon name="folder" size={64} class="self-center" style={{ color: color }}/>
                     <span class="text-wrap text-white/50">{title}</span>
                 </div>
             )})}

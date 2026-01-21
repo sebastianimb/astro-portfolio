@@ -11,13 +11,13 @@ import Contact from '@/components/Contact.astro';
 ---
 
 <Layout>
-    <Window id="container-about" title='Sobre Mi' hidden={false}>
+    <Window id="container-about" title='Sobre Mi' hidden={true}>
         <AboutMe />
     </Window>
     <Window id="container-experience" title='Experiencia' hidden={true}>
         <Experience />
     </Window>
-    <Window id="container-projects" title='Proyectos' hidden={true}>
+    <Window id="container-projects" title='Proyectos' hidden={false}>
         <Projects />
     </Window>
     <Window id="container-contact" title='Contacto' hidden={true}>

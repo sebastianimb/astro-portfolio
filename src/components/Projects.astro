@@ -1,6 +1,270 @@
 ---
+import { Icon } from 'astro-icon/components';
+import tracking from '../assets/tracking.png';
+import skinopoly from '../assets/skinopoly.png';
+import pokemon from '../assets/pokemon.png';
+import fact from '../assets/cat-fact.png';
+
+const projects = [
+    {   
+        id:1,
+        title: "Seguimiento de Solicitudes",
+        description: "Proyecto para dar seguimiento a solicitudes de diferentes distribuidores.",
+        imgSrc: tracking,
+        color: "teal",
+        demo: "https://demo-tracking-solicitudes.netlify.app/",
+        tools: ["javascript", "vue", "sass", "html"]
+        },
+    {
+        id:2,
+        title: "Tienda Online Skin CS2",
+        description: "Tienda online para la venta de skins del juego Counter Strike 2.",
+        imgSrc: skinopoly,
+        color: "red",
+        demo: "https://skinopoly.netlify.app/",
+        tools: ["angular", "typescript", "sass", "html"]
+        },
+    {
+        id:3,
+        title: "Búsqueda de Pokemones",
+        description: "Aplicación para buscar información sobre diferentes pokemones utilizando una API pública.",
+        imgSrc: pokemon,
+        color: "blue",
+        demo: "https://astro-pokemon-search.netlify.app",
+        tools: ["astro", "javascript", "tailwind", "css" , "html"]
+        },
+    {
+        id:4,
+        title: "Hechos acerca de gatos",
+        description: "Aplicación que muestra hechos interesantes sobre gatos utilizando una API pública.",
+        imgSrc: fact,
+        color: "yellow",
+        demo: "https://cats-fact-react.netlify.app",
+        tools: ["typescript", "react", "css", "html"]
+    },
+    ]
 ---
-<div class="p-4 text-white">
-    <h2 class="text-2xl font-bold mb-4">Lorem Ipsum</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore qui voluptate ut assumenda, saepe architecto obcaecati! A assumenda iure magnam accusamus esse corrupti, nobis pariatur distinctio repellat exercitationem enim laborum?</p>
+<section id="container-projects-folder" class="w-full place-self-start h-full text-white">
+    <div id="container-folder" class="p-4 h-fit">
+        { projects.map(({ title, color, id, imgSrc, demo, tools, description }) => {
+            return (
+                <div data-project={JSON.stringify({ id, title, imgSrc, demo, tools, description, color })} class="cursor-pointer h-fit max-w-32 flex flex-col text-center" class:list={ `text-${color}-400` } >
+                    <Icon name="folder" size={64} class="self-center"/>
+                    <span class="text-wrap text-white/50">{title}</span>
+                </div>
+            )})}
+    </div>
+    <div class="hidden bg-neutral-600/20 py-4 md:py-0 border-0 md:border-l md:border-l-white/20 text-white">
+        <div id="project-details" class="p-4">
+            <a target="_blank" id="link-project" href="">
+                <img id="collage" src="" alt="Collage de proyectos" class="rounded-md mb-4"/>
+            </a>
+            <table>
+                <tr>
+                    <td class="text-white/60">Proyecto:</td>
+                    <td id="table-title"></td>
+                </tr>
+                <tr>
+                    <td class="text-white/60">Descripción:</td>
+                    <td id="table-description"></td>
+                </tr>
+                <tr>
+                    <td class="text-white/60">Tecnologías:</td>
+                    <td id="table-tools" class="flex gap-4">
+                        <Icon name="javascript" size={24} class="hidden tool-icon" data-tool="javascript"/>
+                        <Icon name="vue" size={24} class="hidden tool-icon" data-tool="vue"/>
+                        <Icon name="angular" size={24} class="hidden tool-icon" data-tool="angular"/>
+                        <Icon name="react" size={24} class="hidden tool-icon" data-tool="react"/>
+                        <Icon name="astro" size={24} class="hidden tool-icon" data-tool="astro"/>
+                        <Icon name="typescript" size={24} class="hidden tool-icon" data-tool="typescript"/>
+                        <Icon name="sass" size={24} class="hidden tool-icon" data-tool="sass"/>
+                        <Icon name="tailwind" size={24} class="hidden tool-icon" data-tool="tailwind"/>
+                        <Icon name="css" size={24} class="hidden tool-icon" data-tool="css"/>
+                        <Icon name="html" size={24} class="hidden tool-icon" data-tool="html"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-white/60">Demo:</td>
+                    <td><a id="link-demo-option" target="_blank" href="#" class="underline"></a></td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+    <div id="go-to-" class="p-4 w-full flex justify-between">
+        <div id="go-to-experience-projects" class="py-4 flex justify-end underline cursor-pointer items-center gap-0.5">
+            <Icon name="arrow-left" size={24} />
+            <p>Experiencia</p>
+        </div>
+        <div id="go-to-contact" class="py-4 flex justify-end underline cursor-pointer items-center gap-0.5">
+            <p>Contacto</p>
+            <Icon name="arrow-right" size={24} />
+        </div>
+    </div>
 </div>
+</section>
+
+<script>
+
+    const projectsData = document.querySelectorAll("#container-folder div");
+    const projectDetails = document.getElementById("project-details") as HTMLElement;
+    projectsData.forEach(project => {
+        project.addEventListener("click", () => {
+            const data = JSON.parse(project.getAttribute("data-project")!);
+            const linkProject = document.getElementById("link-project") as HTMLAnchorElement;
+            const collage = document.getElementById("collage") as HTMLImageElement;
+            const tableTitle = document.getElementById("table-title")!;
+            const tableDescription = document.getElementById("table-description")!;
+            const tableTools = document.getElementById("table-tools")!;
+            const tableDemo = document.getElementById("link-demo-option") as HTMLAnchorElement;
+
+            collage.src = data.imgSrc.src;
+            tableTitle.textContent = data.title;
+            tableDescription.textContent = data.description;
+            
+            const allIcons = tableTools.querySelectorAll(".tool-icon");
+            allIcons.forEach((icon: Element) => icon.classList.add("hidden"));
+            
+            data.tools.forEach((tool: string) => {
+                const icon = tableTools.querySelector(`.tool-icon[data-tool="${tool}"]`);
+                if (icon) {
+                    icon.classList.remove("hidden");
+                }
+            });
+            
+            tableDemo.href = data.demo;
+            tableDemo.textContent = "Link Demo";
+            linkProject.href = data.demo;
+            projectDetails.parentElement!.classList.remove("hidden");
+        });
+    });
+
+
+</script>
+
+<script>
+    function calculateMaxZIndex() {
+        let maxZ = 0;
+        document.querySelectorAll('.window-container').forEach(win => {
+            const z = parseInt(window.getComputedStyle(win).zIndex) || 0;
+            if (z > maxZ) {
+                maxZ = z;
+            }
+        });
+        return maxZ;
+    }
+
+    const goToContact = document.getElementById("go-to-contact");
+    const goToExperience = document.getElementById("go-to-experience-projects");
+
+    if (goToContact) {
+        goToContact.addEventListener("click", () => {
+            const windowProjects = document.getElementById("container-projects");
+            const windowContainer = document.getElementById("container-contact");
+            if (windowContainer && windowProjects) {
+                const maxZ = calculateMaxZIndex();
+                windowProjects.classList.add("closed");
+                windowContainer.classList.remove("closed");
+                windowContainer.style.zIndex = (maxZ + 1).toString();
+            }
+        });
+    }
+
+    if (goToExperience) {
+        goToExperience.addEventListener("click", () => {
+            const windowContainer = document.getElementById("container-experience");
+            const windowProjects = document.getElementById("container-projects");
+            if (windowContainer && windowProjects) {
+                const maxZ = calculateMaxZIndex();
+                windowProjects.classList.add("closed");
+                windowContainer.classList.remove("closed");
+                windowContainer.style.zIndex = (maxZ + 1).toString();
+            }
+        });
+    }
+</script>
+
+<style>
+#container-projects-folder {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#container-folder {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+#container-folder div:hover{
+    background-color: #ffffff1a;
+    border: 1px solid #ffffff0f;
+    border-radius: 1rem;
+}
+
+#project-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#project-details #collage{
+    width: 100%;
+    object-fit: contain;
+    height: auto;
+}
+
+#table-description {
+    max-width: 400px;
+    overflow: hidden;
+}
+.tools svg {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    vertical-align: top;
+    text-align: start;
+    display:flex;
+    & th, td {
+        text-align: start;
+        vertical-align: top;
+        padding: 0.5rem;
+        text-align: left;
+    }
+}
+
+#collage{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+@media (min-width: 768px) {
+    #container-projects-folder {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 0;
+    }
+    #container-folder {
+        row-gap: 1rem;
+    }
+    #go-to- {
+        display: none;
+    }
+    #project-details #collage{
+        max-width: 500px;
+    }
+}
+
+@media (min-width: 1024px) {
+    #collage{
+        margin: 0;
+    }
+}
+
+</style>

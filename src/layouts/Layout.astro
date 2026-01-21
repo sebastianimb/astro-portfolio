@@ -4,7 +4,7 @@ import { ClientRouter } from "astro:transitions";
 import NavBar from "@components/shared/NavBar.astro";
 import "@styles/global.css";
 import Header from "@/components/shared/Header.astro";
-import Window from "@/components/shared/Window.astro";
+import { Icon } from 'astro-icon/components';
 interface Props {
 	title?: string;
 	description?: string;
@@ -28,13 +28,54 @@ const { title = siteInfo.title, description = siteInfo.description } = Astro.pro
 	<body>
 		<Header id="header" />
 		<slot />
-		<NavBar id="nav" />
+		<div class="px-2 max-w-xl mx-auto sm:px-4 md:px-8 flex flex-col justify-center">
+			<div id="showNav" class="hidden tooltip-nav rounded-t-xl w-auto items-center cursor-pointer p-2 gap-2 justify-center text-green-400 bg-neutral-900/50"
+				data-tooltip-target="Mostrar Dock">
+					<Icon name="arrow-up" id={"arrow-icon"} size={32} class:list={"bouncing-icon"}/>
+			</div>
+			<div id="nav" class="hidden">
+				<NavBar id="nav" />
+			</div>
+		</div>
 	</body>
 </html>
 
+<script>
+	const showNav = document.getElementById("showNav") as HTMLElement;
+	const nav = document.getElementById("nav");
+	const svgIcon = document.getElementById("arrow-icon");
+
+	if (showNav && nav) {
+		showNav.addEventListener("click", () => {
+			console.log("click");
+			if (nav.classList.contains("hidden")) {
+				nav.classList.remove("hidden");
+				svgIcon!.classList.remove("bouncing-icon");
+				svgIcon!.classList.add("rotate-180");
+				showNav.dataset.tooltipTarget = "Ocultar Dock";
+			} else {
+				nav.classList.add("hidden");
+				svgIcon!.classList.remove("rotate-180");
+				svgIcon!.classList.add("bouncing-icon");
+				showNav.dataset.tooltipTarget = "Mostrar Dock";
+			}
+		});
+	}
+</script>
+
 <style>
+	@keyframes bounce {
+		0%, 100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(5%);
+		}
+	}
 	html,
 	body {
+		font-family: "Montserrat", sans-serif;
+		scroll-behavior: smooth;
 		background-image: url(../assets/bg.jpg);
 		background-size: cover;
 		background-position: center;
@@ -44,12 +85,78 @@ const { title = siteInfo.title, description = siteInfo.description } = Astro.pro
 		height: 100dvh;
 		display: grid;
 		justify-content: center;
+		border-radius: 2rem;
 		grid-template-rows: auto 1fr;
 		grid-template-columns: 1fr;
 		align-items: center;
 		grid-template-areas: 
 			"header"
 			"main";
+		align-content: center;
+	}
+	
+	main {
+		align-self: center;
+	}
+	#nav {
+		opacity: 1;
+		transition: opacity 300ms ease;
+		transform: translateY(0);
+		@starting-style{
+			opacity: 0;
+			transform: translateY(100%);
+		}
+	}
+
+	.bouncing-icon {
+		animation: bounce 1.5s infinite;
+	}
+
+	.tooltip-nav{
+        transition: transform 125ms ease;
+        position: relative;
+    }
+    .tooltip-nav::before,
+    .tooltip-nav::after{
+        --scale: 0;
+        position: absolute;
+        top: -.25rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(-100%) scale(var(--scale)); 
+        transition: 150ms transform;
+        transform-origin: bottom center;
+    }
+    .tooltip-nav::before{
+        content: attr(data-tooltip-target);
+        color: white;
+        font-size: 0.75rem;
+        font-weight: 600;
+        white-space: nowrap;
+        margin-bottom: 0.25rem;
+        width: max-content;
+        background-color: #1f1f1fcc;
+        padding: 0.25rem 0.5rem;
+        border-radius: .5rem;
+        border: solid 1px #ffffff08;
+    }
+
+	.tooltip-nav::after{
+        content: '';
+        color: red;
+        width: .5rem;
+        height: .5rem;
+        background-color: #1f1f1fcc;
+        border-radius: 50%;
+        border: solid 1px #ffffff08;
+        margin-top: .125rem;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    }
+    .tooltip-nav:hover::before,
+    .tooltip-nav:hover::after{
+        --scale: 1;
+    }
+	.tooltip-nav:hover{
+		z-index: 1000;
 	}
 	@media (min-width: 768px) {
 		html,
@@ -60,6 +167,13 @@ const { title = siteInfo.title, description = siteInfo.description } = Astro.pro
 				"header"
 				"main"
 				"nav";
+		}
+		main {
+			align-self: start;
+		}
+		#showNav {
+			display: flex;
+			min-width: 10rem;
 		}
 	}
 

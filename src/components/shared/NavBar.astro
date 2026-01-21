@@ -10,7 +10,7 @@ interface Props {
     id:string
 }
 ---
-<nav class="hidden px-4 mb-4 justify-self-center bg-black/30 border border-white/10 rounded-md shadow-lg" id={Astro.props.id}>
+<nav class="hidden px-4 mb-4 justify-self-center bg-neutral-900/95 border border-white/10 rounded-md shadow-lg" id={Astro.props.id}>
     <div id="container" class="container flex items-center gap-12 justify-center p-4 mx-auto">
          { links.map(({ image, text, color, windowId })=>{
             return (
@@ -38,6 +38,8 @@ interface Props {
     }
     
     navIcons.forEach(icon => {
+        const color = icon.getAttribute('data-color-text');
+        (icon as HTMLElement).style.setProperty('--color-text', color);
         icon.addEventListener('click', () => {
             const windowId = icon.getAttribute('data-window-id');
             const maxZ = calculateMaxZIndex();
@@ -58,7 +60,38 @@ interface Props {
     });
 </script>
 
+<script>
+    function updateNavIcons() {
+        const windows = document.querySelectorAll('.window-container');
+        windows.forEach(win => {
+            const navIcon = document.querySelector(`.icon-nav[data-window-id="${win.id}"]`);
+            if (navIcon) {
+                if (!win.classList.contains('closed')) {
+                    navIcon.classList.add('active');
+                } else {
+                    navIcon.classList.remove('active');
+                }
+            }
+        });
+    }
+    updateNavIcons();
+
+    const windows = document.querySelectorAll('.window-container');
+    const observer = new MutationObserver(updateNavIcons);
+
+    windows.forEach(win => {
+        observer.observe(win, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
+    });
+</script>
+
 <style>
+    @keyframes grow {
+        from { transform: scale(0); }
+        to { transform: scale(1.5); }
+    }
     #nav{
         grid-area: nav;
     }
@@ -108,6 +141,10 @@ interface Props {
         transform: scale(1.4);
         z-index: 1000;
     }
+    .active svg{
+        animation: grow 300ms ease forwards;
+        transform: scale(1.5);
+    }
     @media (min-width: 768px) {
         #nav{
             display: block;
@@ -119,4 +156,3 @@ interface Props {
         }
     }
 </style>
-</script>

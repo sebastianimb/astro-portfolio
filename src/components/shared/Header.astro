@@ -10,8 +10,8 @@ interface Props {
     id: string;
 }
 ---
-<header class="flex items-center justify-between p-4 px-8 bg-black text-white" id={Astro.props.id}>
-    <h1 id="go-to-about" class="font-bold cursor-pointer">Sebastian Molina</h1>
+<header class="flex items-center justify-between p-4 sm:px-4 md:px-8 bg-black text-white" id={Astro.props.id}>
+    <h1 id="go-to-about-header" class="font-bold cursor-pointer">Sebastián Molina</h1>
     <h1 class="capitalize hidden" id="date"></h1>
     <section class="hidden justify-center items-center" id="percent">
         <h1>100%</h1>
@@ -72,7 +72,7 @@ interface Props {
         }
     });
 
-    const goToAbout = document.getElementById("go-to-about") as HTMLElement;
+    const goToAbout = document.getElementById("go-to-about-header") as HTMLElement;
     goToAbout.addEventListener("click", () => {
         const windowContainer = document.getElementById("container-about") as HTMLElement;
         const allWindows = document.querySelectorAll('.window-container');

@@ -8,10 +8,21 @@ interface Props {
 }
 
 const { title, id } = Astro.props;
+
+const links = [
+    { image: "user", text: 'Sobre Mi' , color: 'lightblue', windowId: 'container-about' },
+    { image: "experience", text: 'Experiencia', color: '#ef476f', windowId: 'container-experience' },
+    { image: "projects", text: 'Proyectos', color: '#ffd166', windowId: 'container-projects' },
+    { image: "contact", text: 'Contacto', color: '#06d6a0', windowId: 'container-contact' },
+]
+
+const recomendations = [
+	{ image: "recommendations", text: 'Recomendaciones' , color: 'lightblue', windowId: 'container-recommendations' }
+	]
 ---
 
-<div id={id} class="window-container p-8 w-full h-full overflow-y-hidden mb-8" class:list={[Astro.props.hidden ? "closed" : ""]}>
-	<section class="window-header flex justify-between text-black font-bold w-full bg-white/90 rounded-t-md py-1 px-4 cursor-grab active:cursor-grabbing">
+<div id={id} class="window-container py-8 px-2 sm:px-4 md:px-8 w-full h-full overflow-y-hidden mb-8" class:list={[Astro.props.hidden ? "closed" : ""]}>
+	<section class="window-header flex justify-between text-white font-bold w-full border-t border-x border-white/20 bg-black/70 rounded-t-md py-2 px-4 cursor-grab active:cursor-grabbing">
 		<h1>
 			{title}
 		</h1>
@@ -20,7 +31,30 @@ const { title, id } = Astro.props;
 			<Icon name="close" size={24} id={`close-${id}`} class="cursor-pointer"></Icon>
 		</div>
 	</section>
-	<main id={`window-${id}`} class="window bg-black/90 place-items-center grid w-full h-full items-center border overflow-y-scroll border-white/20 rounded-md shadow-lg">
+	<main id={`window-${id}`} class="window bg-neutral-900/96 overflow-y-scroll place-items-center grid w-full h-full border border-b-8 border-white/20 rounded-b-md shadow-lg">
+		<aside class="hidden sticky flex-col justify-start gap-8 bg-neutral-950/35 border-r border-white/20 h-full text-white/50">
+			<nav>
+				<ul class="pt-4">
+					{ links.map(({ image, text, color, windowId })=>{
+						return (
+							<li id="aside-nav" data-color-text={color} data-tooltip-target={text} data-window-id={windowId}>
+								<Icon name={image} size={16} class="inline-block"/>
+								<span id="text-nav">{text}</span>
+							</li>
+						)
+					}) }
+					<hr>
+					{ recomendations.map(({ image, text, color, windowId })=>{
+						return (
+							<li id="aside-nav" data-color-text={color} data-tooltip-target={text} data-window-id={windowId}>
+								<Icon name={image} size={16} class="inline-block"/>
+								<span id="text-nav">{text}</span>
+							</li>
+						)
+					}) }
+				</ul>
+			</nav>
+		</aside>
 		<slot />
 	</main>
 </div>
@@ -42,14 +76,124 @@ const { title, id } = Astro.props;
 	}
 </script>
 
+<script>
+    const navIcons = document.querySelectorAll('#aside-nav');
+
+    function calculateMaxZIndex() {
+        let maxZ = 0;
+        document.querySelectorAll('.window-container').forEach(win => {
+            const z = parseInt(window.getComputedStyle(win).zIndex) || 0;
+            if (z > maxZ) {
+                maxZ = z;
+            }
+        });
+        return maxZ;
+    }
+    
+    navIcons.forEach(icon => {
+        const color = icon.getAttribute('data-color-text');
+        (icon as HTMLElement).style.setProperty('--color-text', color);
+
+        icon.addEventListener('click', () => {
+            const windowId = icon.getAttribute('data-window-id');
+            const maxZ = calculateMaxZIndex();
+
+            const allWindows = document.querySelectorAll('.window-container');
+
+            allWindows.forEach(win => {
+                if (win.id !== windowId) {
+                    win.classList.add('closed');
+                } 
+            });
+
+            if (windowId) {
+                const windowContainer = document.getElementById(windowId);
+                if (windowContainer) {
+                    windowContainer.classList.remove('closed');
+                    windowContainer.style.zIndex = (maxZ + 1).toString();
+                }
+            }
+        });
+    });
+</script>
+
+<!-- <script>
+    function updateNavIcons() {
+        const windows = document.querySelectorAll('.window-container');
+        windows.forEach(win => {
+            const navIcon = document.querySelector(`.icon-nav[data-window-id="${win.id}"]`);
+            if (navIcon) {
+                if (!win.classList.contains('closed')) {
+                    navIcon.classList.add('active');
+                } else {
+                    navIcon.classList.remove('active');
+                }
+            }
+        });
+    }
+    updateNavIcons();
+
+    const windows = document.querySelectorAll('.window-container');
+    const observer = new MutationObserver(updateNavIcons);
+
+    windows.forEach(win => {
+        observer.observe(win, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
+    });
+</script> -->
+
 <style>
+	main{
+		display: grid;
+		grid-template-columns: 1fr;
+		border-bottom: 0.7rem solid rgba(255, 255, 255, 0.20) ;
+	}
+
+	aside{
+		min-width: auto;
+	}
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		text-align: start;
+	}
+
+	li{
+		display: flex;
+		justify-content: start;
+		align-items: center;
+		text-align: center;
+		gap: 0.5rem;
+		padding: 0.5rem;
+		padding-left: 1rem;
+		cursor: pointer;
+
+		&:hover{
+			background-color: #3d3d3d5b;
+		}
+	}
+
+	hr{
+		margin: 0 auto;
+		width: 90%;
+		border: 1px solid #ffffff2f;
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
 	.window-container {
+		margin: 0 auto;
 		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
 		grid-area: main;
 		transform: scale(1) translateY(0);
 		opacity: 1;
 		transition: transform 300ms ease, opacity 300ms ease;
 		transform-origin: bottom center;
+		max-width: 1280px;
+		margin-bottom: 2rem;
 		@starting-style{
 			opacity: 0;
 			transform: scale(0) translateY(100%);
@@ -66,11 +210,13 @@ const { title, id } = Astro.props;
 		transform: scale(0) translateY(100%);
 		transition: opacity 300ms ease, transform 300ms ease, visibility 300ms ease;
 	}
-
-	@media screen and (max-width: 768px) {
-		#container {
+	@media (min-width: 768px) {
+		main {
+			grid-template-columns: auto 1fr;
+		}
+		aside {
 			display: flex;
-			flex-direction: column;
+			min-width: 12rem;
 		}
 	}
 </style>

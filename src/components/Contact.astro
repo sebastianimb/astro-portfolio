@@ -1,6 +1,120 @@
 ---
+import { Icon } from 'astro-icon/components';
 ---
-<div class="p-4 text-white">
-    <h2 class="text-2xl font-bold mb-4">Lorem Ipsum</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore qui voluptate ut assumenda, saepe architecto obcaecati! A assumenda iure magnam accusamus esse corrupti, nobis pariatur distinctio repellat exercitationem enim laborum?</p>
-</div>
+<section class="flex px-4 flex-col md:py-6 md:px-12 h-full items-center justify-center"> 
+  <div id="contact" class="contact bg-black/20 flex flex-col p-8 xl:p-12 rounded-xl md:border md:border-white/20 items-center justify-center text-white">
+    <h1 class="text-3xl font-bold pb-8">Póngamonos en contacto</h1>
+    <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="3610e426-e468-4282-8865-263069e0e24a">
+      <input type="text" name="name" class="contact-input-name rounded-xl text-md border border-white/20" placeholder="¿Cuál es tu nombre?"
+          required>
+      <input type="email" name="email" class="contact-input-email rounded-xl text-md border border-white/20" placeholder="¿Cuál es tu correo?"
+          required>
+      <textarea name="body" class="contact-textarea rounded-xl text-md border border-white/20" placeholder="Escribe aquí tu mensaje"
+          required></textarea>
+      <div class="contact-submit">
+          <button type="submit" name="submit" class=" rounded-xl text-md">
+              <p>Enviar</p>
+          </button>
+      </div>
+    </form>
+  </div>
+  <div id="go-to--" class="w-full text-white flex justify-between">
+    <div id="go-to-projects-from-contact" class="py-8 flex justify-end underline cursor-pointer items-center gap-0.5">
+        <Icon name="arrow-left" size={24} />
+        <p>Proyectos</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  function calculateMaxZIndex() {
+        let maxZ = 0;
+        document.querySelectorAll('.window-container').forEach(win => {
+            const z = parseInt(window.getComputedStyle(win).zIndex) || 0;
+            if (z > maxZ) {
+                maxZ = z;
+            }
+        });
+        return maxZ;
+  }
+
+  const goToProjects = document.getElementById("go-to-projects-from-contact");
+  if (goToProjects) {
+      goToProjects.addEventListener("click", () => {
+        const windowContact = document.getElementById("container-contact");
+        const windowContainer = document.getElementById("container-projects");
+        console.log("click",windowContact, windowContainer);
+        if (windowContainer && windowContact) {
+            const maxZ = calculateMaxZIndex();
+            windowContainer.classList.remove("closed");
+            windowContact.classList.add("closed");
+            windowContainer.style.zIndex = (maxZ + 1).toString();
+        }
+      });
+  }
+</script>
+
+<style>
+.contact .contact-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.contact .contact-form input {
+  color: white;
+  background-color: transparent;
+  padding: 1rem;
+  outline: none;
+  width: 100%;
+}
+
+.contact .contact-form input:focus {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: 1px solid white;
+}
+
+.contact .contact-form textarea {
+  min-height: 200px;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  background-color: transparent;
+  padding: 1rem;
+  outline: none;
+  max-height: 10rem;
+}
+
+.contact .contact-form textarea:focus {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: 1px solid white;
+}
+
+.contact .contact-form .contact-submit button {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  color: black;
+  appearance: none;
+  border: none;
+  background-color: #cccc;
+  padding: 1rem;
+  outline: none;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.contact .contact-form .contact-submit button:hover {
+  background-color: white;
+  color: black;
+}
+
+@media (min-width: 768px) {
+   #go-to-- {
+      display: none;
+  }
+}
+</style>

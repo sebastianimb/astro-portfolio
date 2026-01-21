@@ -1,15 +1,14 @@
 ---
 import { Icon } from 'astro-icon/components';
 ---
-<div class="px-8 md:px-32 py-6 text-white">
-   <h1 class="text-3xl font-bold py-4 px-2">Experiencia</h1>
+<section class="px-4 md:px-12 py-6 text-white">
    <div class="mb-8">
-        <div class="flex justify-between border-2 rounded-t-md border-white/20">
+        <div class="flex gap-0 justify-between border-2 rounded-t-md border-white/20">
             <div class="p-4">
                 <span class="font-bold">Ingeniero de Desarrollo</span>, 
                 <span class="text-amber-300">Innovex Tecnologías SpA</span>
             </div>
-            <span class="text-white/30 border-l-2 border-white/20 p-4">Jul 2025 – Actualidad</span>
+            <span class="text-white/30 border-l-2 border-white/30 p-4">Jul 2025 – Actualidad</span>
         </div>
         <ul class="pt-4 text-white/50 px-8 border-b-2 list-disc border-x-2 rounded-b-md border-white/20">
             <li>Construí una API REST + Testing para analítica de monitoreo ambiental, oceanográfico y acuicultura, utilizando Django.</li>
@@ -23,7 +22,7 @@ import { Icon } from 'astro-icon/components';
                 <span class="font-bold">Desarrollador Frontend</span>, 
                 <span class="text-cyan-300">VASS Consultoría de Sistemas Chile Ltda</span>
             </div>
-            <span class="text-white/30 border-l-2 border-white/20 p-4">Jul 2022 – Sept 2024</span>
+            <span class="text-white/30 border-l-2 border-white/30 p-4">Jul 2022 – Sept 2024</span>
         </div>
         <ul class="list-disc text-white/50 pt-4 px-8 border-b-2 border-x-2 rounded-b-md border-white/20">
             <li>Aporté en la mantención de aplicaciones como soporte y desarrollé nuevos requerimientos para añadir funcionalidades claves, junto con la resolución de incidencias reportadas por los clientes. </li>
@@ -38,7 +37,7 @@ import { Icon } from 'astro-icon/components';
                 <span class="font-bold">Diseñador Gráfico</span>, 
                 <span class="text-green-300">Freelance</span>
             </div>
-            <span class="text-white/30 border-l-2 border-white/20 p-4">Mar 2010 – Mar 2020</span>
+            <span class="text-white/30 border-l-2 border-white/30 p-4">Mar 2010 – Mar 2020</span>
         </div>
         <ul class="pt-4 px-8 text-white/50 list-disc border-b-2 border-x-2 rounded-b-md border-white/20">
             <li>Obtuve experiencia colaborando con diversas empresas y clientes individuales, gestionando proyectos de imagen desde la conceptualización hasta la entrega final. </li>
@@ -46,14 +45,14 @@ import { Icon } from 'astro-icon/components';
         </ul>
     </div>
     
-    <h1 class="text-3xl font-bold py-4 px-2">Educación</h1>
+    <h1 class="text-3xl font-bold pb-8 px-2">Educación</h1>
     <div class="mb-8">
         <div class="flex justify-between border-2 rounded-t-md border-white/20">
             <div class="p-4">
                 <span class="font-bold">Universidad Austral de Chile</span>, 
                 <span class="text-red-300">Ingeniería Civil en Informática</span>
             </div>
-            <span class="text-white/30 border-l-2 border-white/20 p-4">Mar 2015 – Ene 2022</span>
+            <span class="text-white/30 border-l-2 border-white/30 p-4">Mar 2015 – Ene 2022</span>
         </div>
         <ul class="pt-4 text-white/50 list-disc px-8 border-b-2 border-x-2 rounded-b-md border-white/20">
             <li> Titulado con distinción.</li>
@@ -61,57 +60,68 @@ import { Icon } from 'astro-icon/components';
         </ul>
     </div>
 
-    <div class="w-full flex justify-between">
-        <div id="go-to-about" class="py-8 flex justify-end underline cursor-pointer items-center gap-0.5">
-        <Icon name="arrow-left" size={24} />
-        <p>Sobre Mi</p>
+    <div id="go-to" class="w-full flex justify-between">
+        <div id="go-to-about" class="py-4 flex justify-end underline cursor-pointer items-center gap-0.5">
+            <Icon name="arrow-left" size={24} />
+            <p>Sobre Mi</p>
+        </div>
+        <div id="go-to-projects" class="py-4 flex justify-end underline cursor-pointer items-center gap-0.5">
+            <p>Proyectos</p>
+            <Icon name="arrow-right" size={24} />
+        </div>
     </div>
-    <div id="go-to-projects" class="py-8 flex justify-end underline cursor-pointer items-center gap-0.5">
-        <p>Proyectos</p>
-        <Icon name="arrow-right" size={24} />
-    </div>
-    </div>
-</div>
+
+</section>
 
 <script>
     function calculateMaxZIndex() {
-        let maxZ = 0;
-        document.querySelectorAll('.window-container').forEach(win => {
-            const z = parseInt(window.getComputedStyle(win).zIndex) || 0;
-            if (z > maxZ) {
-                maxZ = z;
-            }
-        });
-        return maxZ;
-    }
-    const goToProjects = document.getElementById("go-to-projects") as HTMLElement;
-    goToProjects.addEventListener("click", () => {
-        const windowContainer = document.getElementById("container-projects") as HTMLElement;
-        const windowAboutMe = document.getElementById("container-experience") as HTMLElement;
-        if (windowContainer) {
-            const maxZ = calculateMaxZIndex();
-            windowAboutMe.classList.add("closed");
-            windowContainer.classList.remove("closed");
-            windowContainer.style.zIndex = (maxZ + 1).toString();
+            let maxZ = 0;
+            document.querySelectorAll('.window-container').forEach(win => {
+                const z = parseInt(window.getComputedStyle(win).zIndex) || 0;
+                if (z > maxZ) {
+                    maxZ = z;
+                }
+            });
+            return maxZ;
         }
-        
-    });
-    const goToAbout = document.getElementById("go-to-about") as HTMLElement;
-    goToAbout.addEventListener("click", () => {
-        const windowContainer = document.getElementById("container-about") as HTMLElement;
-        const windowAboutMe = document.getElementById("container-experience") as HTMLElement;
-        if (windowContainer) {
-            const maxZ = calculateMaxZIndex();
-            windowAboutMe.classList.add("closed");
-            windowContainer.classList.remove("closed");
-            windowContainer.style.zIndex = (maxZ + 1).toString();
+
+        const goToProjects = document.getElementById("go-to-projects");
+        const goToAbout = document.getElementById("go-to-about");
+
+        if (goToProjects) {
+            goToProjects.addEventListener("click", () => {
+                const windowContainer = document.getElementById("container-projects");
+                const windowExperience = document.getElementById("container-experience");
+                if (windowContainer && windowExperience) {
+                    const maxZ = calculateMaxZIndex();
+                    windowContainer.classList.remove("closed");
+                    windowExperience.classList.add("closed");
+                    windowContainer.style.zIndex = (maxZ + 1).toString();
+                }
+            });
         }
-        
-    });
+
+        if (goToAbout) {
+            goToAbout.addEventListener("click", () => {
+                const windowContainer = document.getElementById("container-about");
+                const windowExperience = document.getElementById("container-experience");
+                if (windowContainer && windowExperience) {
+                    const maxZ = calculateMaxZIndex();
+                    windowContainer.classList.remove("closed");
+                    windowExperience.classList.add("closed");
+                    windowContainer.style.zIndex = (maxZ + 1).toString();
+                }
+            });
+        }
 </script>
 
 <style> 
     li {
         margin-bottom: 1rem;
+    }
+    @media (min-width: 768px) {
+        #go-to {
+            display: none;
+        }
     }
 </style>

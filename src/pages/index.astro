@@ -12,7 +12,7 @@ import Recommendations from '@/components/Recommendations.astro';
 ---
 
 <Layout>
-    <Window id="container-about" title='Sobre Mi' hidden={true}>
+    <Window id="container-about" title='Sobre Mi' hidden={false}>
         <AboutMe />
     </Window>
     <Window id="container-experience" title='Experiencia' hidden={true}>
@@ -24,7 +24,7 @@ import Recommendations from '@/components/Recommendations.astro';
     <Window id="container-contact" title='Contacto' hidden={true}>
         <Contact />
     </Window>
-    <Window id="container-recommendations" title='Recomendaciones' hidden={false}>
+    <Window id="container-recommendations" title='Recomendaciones' hidden={true}>
         <Recommendations />
     </Window>
 </Layout>

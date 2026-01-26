@@ -113,7 +113,7 @@ const { title = siteInfo.title, description = siteInfo.description } = Astro.pro
 	}
 
 	.tooltip-nav{
-        transition: transform 125ms ease;
+        transition: transform 300ms ease;
         position: relative;
     }
     .tooltip-nav::before,
@@ -123,7 +123,7 @@ const { title = siteInfo.title, description = siteInfo.description } = Astro.pro
         top: -.25rem;
         left: 50%;
         transform: translateX(-50%) translateY(-100%) scale(var(--scale)); 
-        transition: 150ms transform;
+        transition: 300ms transform;
         transform-origin: bottom center;
     }
     .tooltip-nav::before{

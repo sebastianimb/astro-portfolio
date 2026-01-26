@@ -1,8 +1,8 @@
 ---
 import { Icon } from 'astro-icon/components';
 ---
-<section class="flex w-full place-self-start px-4 flex-col md:py-6 md:px-12 h-full items-center"> 
-  <div id="contact" class="contact bg-black/20 flex w-full flex-col p-8 xl:p-12 rounded-xl md:border md:border-white/20 text-white">
+<section class="flex w-full place-self-start flex-col py-6 px-4 md:px-12 h-full items-center"> 
+  <div id="contact" class="contact md:bg-black/20 flex w-full flex-col p-4 xl:p-12 rounded-xl md:border md:border-white/20 text-white">
     <h1 class="text-3xl font-bold pb-8">Póngamonos en contacto</h1>
     <form id="contactForm" class="contact-form">
       <input type="text" name="name" class="contact-input-name rounded-xl text-md border border-white/20" placeholder="¿Cuál es tu nombre?"
@@ -20,7 +20,7 @@ import { Icon } from 'astro-icon/components';
     </form>
   </div>
   <div id="go-to--" class="w-full text-white flex justify-between">
-    <div id="go-to-projects-from-contact" class="py-8 flex justify-end underline cursor-pointer items-center gap-0.5">
+    <div id="go-to-projects-from-contact" class="py-8 pl-4 flex justify-end underline cursor-pointer items-center gap-0.5">
         <Icon name="arrow-left" size={24} />
         <p>Proyectos</p>
     </div>

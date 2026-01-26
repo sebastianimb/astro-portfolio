@@ -5,6 +5,7 @@ import AboutMe from '@/components/AboutMe.astro';
 import Experience from '@/components/Experience.astro';
 import Projects from '@/components/Projects.astro';
 import Contact from '@/components/Contact.astro';
+import Recommendations from '@/components/Recommendations.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -20,7 +21,10 @@ import Contact from '@/components/Contact.astro';
     <Window id="container-projects" title='Proyectos' hidden={true}>
         <Projects />
     </Window>
-    <Window id="container-contact" title='Contacto' hidden={false}>
+    <Window id="container-contact" title='Contacto' hidden={true}>
         <Contact />
+    </Window>
+    <Window id="container-recommendations" title='Recomendaciones' hidden={false}>
+        <Recommendations />
     </Window>
 </Layout>

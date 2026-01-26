@@ -1,0 +1,172 @@
+---
+import Humberto from '@aassets/humberto.png';
+---
+
+<section id="recommendations" class="flex flex-col md:py-6 md:px-12 h-full place-content-center w-full">
+    <div class="wrapper self-center">
+            <div class="testimonial-container" id="testimonial-container">
+            </div>
+            <button id="prev">&lt;</button>
+            <button id="next">&gt;</button>
+    </div>
+</section>
+
+<script>
+const testimonials = [
+  {
+    name: "Humberto Hervella Mateos",
+    job: "Fullstack Developer, IT Administrator",
+    company: "Dynamiq Automation Solutions",
+    image: "src/assets/humberto.jpg",
+    links: {
+      linkedin: "https://www.linkedin.com/in/humberto-hervella-mateos-837610125/",
+    },
+    testimonial:
+      "Excelente profesional, tiene muy buenas habilidades en el desarrollo del front-end, en el trabajo en equipo, hace que el trabajo parezca sencillo, tiene muy buen dominio de su trabajo y grandes conocimientos que ayudan a crecer a todo el equipo de trabajo. Fue un verdadero placer ser su respaldo como back, trabajar con el ha sido una gran experiencia a nivel profesional y personal.",
+  },
+  {
+    name: "Fabian Morag",
+    job: "Software Engineer, Web Fullstack Developer",
+    company: "Innovex",
+    image: "src/assets/fabian.jpg",
+    links: {
+      linkedin: "https://www.linkedin.com/in/fabian-morag/",
+    },
+    testimonial:
+      "Sebastián es un desarrollador super dedicado y apasionado por lo que hace. Es una persona super amable, siempre está dispuesto a ayudar a sus compañeros, a compartir sus conocimientos y a debatir ideas. Además, se motiva con los desafíos y constantemente busca aprender cosas nuevas para mejorar sus habilidades técnicas. Es capaz de abordar nuevos desafíos de forma analítica y sistemática, lo que le permite entender, resolver y comunicar problemas complejos. Asimismo, tiene un buen sentido del diseño, por lo que sus ideas siempre aportan valor visual a los proyectos en los que trabaja. Sebastián siempre tiene una actitud muy positiva, siempre comparte sus ideas y entrega feedback constructivo. Es una persona super agradable, muy alegre y es un gusto trabajar junto a él. Creo que es capaz de aportar mucho a cualquier equipo de trabajo.",
+  },
+];
+
+let i = 0;
+let j = testimonials.length;
+let testimonialContainer = document.getElementById("testimonial-container") as HTMLDivElement;
+let nextBtn = document.getElementById("next") as HTMLButtonElement;
+let prevBtn = document.getElementById("prev") as HTMLButtonElement;
+
+let displayTestimonial = () => {
+  testimonialContainer.innerHTML = `
+    <a target="_blank" href=${testimonials[i].links!.linkedin}>
+        <img src=${testimonials[i].image}>
+    </a>
+    <a target="_blank" href=${testimonials[i].links!.linkedin}>
+        <h3>${testimonials[i].name}</h3>
+    </a>
+    <h6>${testimonials[i].job}</h6>
+    <h6>${testimonials[i].company}</h6>
+    <p>${testimonials[i].testimonial}</p>   
+  `;
+};
+
+nextBtn.addEventListener("click", () => {
+  i = (j + i + 1) % j;
+  displayTestimonial();
+});
+prevBtn.addEventListener("click", () => {
+  i = (j + i - 1) % j;
+  displayTestimonial();
+});
+window.onload = displayTestimonial;
+</script>
+
+<style is:global>
+
+#recommendations {
+  background-color: transparent;
+  position: relative;
+}
+.wrapper {
+  background-color: transparent;
+  border: 1px solid #ffffff1f;
+  position: relative;
+  width: 75vw;
+  margin: 2rem;
+  max-width: 41em;
+  min-height: 25em;
+  border-radius: 0.6em;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1.8em 3em rgba(1, 17, 39, 0.15);
+  display: flex;
+  margin: 2rem;
+}
+.testimonial-container {
+  width: 85%;
+  height: 100%;
+  position: relative;
+  margin: auto;
+}
+.wrapper button {
+  font-size: 1.8em;
+  height: 1.5em;
+  width: 1.5em;
+  background-color: #04040485;
+  position: absolute;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  border: none;
+  color: #14b8a6;
+  box-shadow: 0 0 1em rgba(1, 17, 39, 0.25);
+  cursor: pointer;
+  border-radius: 50%;
+}
+button#next {
+  right: -1.1em;
+}
+button#prev {
+  left: -1.1em;
+}
+.testimonial-container p {
+  color: #8c8c90;
+  text-align: start;
+  font-size: 0.9em;
+  line-height: 2em;
+  letter-spacing: 0.05em;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+.testimonial-container img {
+  display: block;
+  margin: 1.8em auto 1.25em auto;
+  border-radius: 50%;
+  width: 4.4em;
+}
+.testimonial-container h3 {
+  color: #14b8a6;
+  font-size: 1em;
+  text-align: center;
+}
+.testimonial-container h3:hover {
+  text-decoration: underline;
+}
+.testimonial-container h6 {
+  color: #bcc4da;
+  font-size: 0.9em;
+  letter-spacing: 0.03em;
+  font-weight: 400;
+  text-align: center;
+}
+@media (min-width: 768px) {
+    .testimonial-container {
+       padding: 1rem;
+    }
+    .wrapper{
+        max-width: auto;
+        margin: 0 auto;
+    }
+    .wrapper button {
+    height: 2.2em;
+    width: 2.2em;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    }
+}
+@media screen and (max-width: 650px) {
+  .wrapper {
+    font-size: 14px;
+  }
+}
+</style>

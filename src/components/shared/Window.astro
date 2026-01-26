@@ -37,18 +37,18 @@ const recomendations = [
 				<ul class="pt-4">
 					{ links.map(({ image, text, color, windowId })=>{
 						return (
-							<li id="aside-nav" data-color-text={color} data-tooltip-target={text} data-window-id={windowId}>
+							<li class="aside-nav" data-color-text={color} data-tooltip-target={text} data-window-id={windowId}>
 								<Icon name={image} size={16} class="inline-block"/>
-								<span id="text-nav">{text}</span>
+								<span class="text-nav">{text}</span>
 							</li>
 						)
 					}) }
 					<hr>
 					{ recomendations.map(({ image, text, color, windowId })=>{
 						return (
-							<li id="aside-nav" data-color-text={color} data-tooltip-target={text} data-window-id={windowId}>
+							<li class="aside-nav" data-color-text={color} data-tooltip-target={text} data-window-id={windowId}>
 								<Icon name={image} size={16} class="inline-block"/>
-								<span id="text-nav">{text}</span>
+								<span class="text-nav">{text}</span>
 							</li>
 						)
 					}) }
@@ -77,7 +77,7 @@ const recomendations = [
 </script>
 
 <script>
-    const navIcons = document.querySelectorAll('#aside-nav');
+    const navIcons = document.querySelectorAll('.aside-nav');
 
     function calculateMaxZIndex() {
         let maxZ = 0;
@@ -117,24 +117,26 @@ const recomendations = [
     });
 </script>
 
-<!-- <script>
-    function updateNavIcons() {
-        const windows = document.querySelectorAll('.window-container');
-        windows.forEach(win => {
-            const navIcon = document.querySelector(`.icon-nav[data-window-id="${win.id}"]`);
-            if (navIcon) {
-                if (!win.classList.contains('closed')) {
-                    navIcon.classList.add('active');
-                } else {
-                    navIcon.classList.remove('active');
-                }
-            }
-        });
-    }
-    updateNavIcons();
-
-    const windows = document.querySelectorAll('.window-container');
-    const observer = new MutationObserver(updateNavIcons);
+<script>
+	function updateActiveNav() {
+		const asideNavs = document.querySelectorAll('.aside-nav');
+		const windows = document.querySelectorAll('.window-container');
+		windows.forEach(window => {
+			if (!window.classList.contains('closed')) {
+				const windowId = window.id;
+				asideNavs.forEach(asideNav => {
+					if (asideNav.getAttribute('data-window-id') === windowId) {
+						asideNav.classList.add('li-active');
+					} else {
+						asideNav.classList.remove('li-active');
+					}
+				});
+			}
+		});
+	}
+	updateActiveNav();
+	const windows = document.querySelectorAll('.window-container');
+    const observer = new MutationObserver(updateActiveNav);
 
     windows.forEach(win => {
         observer.observe(win, {
@@ -142,7 +144,9 @@ const recomendations = [
             attributeFilter: ['class']
         });
     });
-</script> -->
+	
+
+</script>
 
 <style>
 	main{
@@ -173,8 +177,12 @@ const recomendations = [
 		cursor: pointer;
 
 		&:hover{
-			background-color: #3d3d3d5b;
+			background-color: #6262625b;
 		}
+	}
+
+	.li-active{
+		background-color: #3d3d3d5b;
 	}
 
 	hr{

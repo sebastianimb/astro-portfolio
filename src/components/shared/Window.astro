@@ -32,8 +32,8 @@ const recomendations = [
 		</div>
 	</section>
 	<main id={`window-${id}`} class="window bg-neutral-900/96 overflow-y-scroll place-items-center grid w-full h-full border border-b-8 border-white/20 rounded-b-md shadow-lg">
-		<aside class="hidden sticky flex-col justify-start gap-8 bg-neutral-950/35 border-r border-white/20 h-full text-white/50">
-			<nav>
+		<aside class="hidden relative flex-col justify-start gap-8 bg-neutral-950/35 border-r border-white/20 h-full text-white/50">
+			<nav class="sticky top-0">
 				<ul class="pt-4">
 					{ links.map(({ image, text, color, windowId })=>{
 						return (

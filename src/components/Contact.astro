@@ -20,9 +20,9 @@ import { Icon } from 'astro-icon/components';
     </form>
   </div>
   <div id="go-to--" class="w-full text-white flex justify-between">
-    <div id="go-to-projects-from-contact" class="py-8 pl-4 flex justify-end underline cursor-pointer items-center gap-0.5">
+    <div id="go-to-recommendations-from-contact" class="py-8 pl-4 flex justify-end underline cursor-pointer items-center gap-0.5">
         <Icon name="arrow-left" size={24} />
-        <p>Proyectos</p>
+        <p>Recomendaciones</p>
     </div>
   </div>
 </section>
@@ -41,11 +41,11 @@ import { Icon } from 'astro-icon/components';
         return maxZ;
   }
 
-  const goToProjects = document.getElementById("go-to-projects-from-contact");
-  if (goToProjects) {
-      goToProjects.addEventListener("click", () => {
+  const goToRecommendations = document.getElementById("go-to-recommendations-from-contact");
+  if (goToRecommendations) {
+      goToRecommendations.addEventListener("click", () => {
         const windowContact = document.getElementById("container-contact");
-        const windowContainer = document.getElementById("container-projects");
+        const windowContainer = document.getElementById("container-recommendations");
         console.log("click",windowContact, windowContainer);
         if (windowContainer && windowContact) {
             const maxZ = calculateMaxZIndex();

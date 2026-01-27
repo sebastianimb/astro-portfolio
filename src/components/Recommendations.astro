@@ -1,5 +1,5 @@
 ---
-import Humberto from '@aassets/humberto.png';
+import { Icon } from 'astro-icon/components';
 ---
 
 <section id="recommendations" class="flex flex-col md:py-6 md:px-12 h-full place-content-center w-full">
@@ -9,7 +9,59 @@ import Humberto from '@aassets/humberto.png';
             <button id="prev">&lt;</button>
             <button id="next">&gt;</button>
     </div>
+    <div id="go-to-" class="py-4 px-8 w-full flex justify-between text-white">
+        <div id="go-to-projects-from-recommendations" class="py-4 flex justify-end underline cursor-pointer items-center gap-0.5">
+            <Icon name="arrow-left" size={24} />
+            <p>Proyectos</p>
+        </div>
+        <div id="go-to-contact-from-recommendations" class="py-4 flex justify-end underline cursor-pointer items-center gap-0.5">
+            <p>Contacto</p>
+            <Icon name="arrow-right" size={24} />
+        </div>
+    </div>
 </section>
+
+<script>
+    function calculateMaxZIndex() {
+        let maxZ = 0;
+        document.querySelectorAll('.window-container').forEach(win => {
+            const z = parseInt(window.getComputedStyle(win).zIndex) || 0;
+            if (z > maxZ) {
+                maxZ = z;
+            }
+        });
+        return maxZ;
+    }
+
+    const goToContact = document.getElementById("go-to-contact-from-recommendations");
+    const goToProjects = document.getElementById("go-to-projects-from-recommendations");
+
+    if (goToContact) {
+        goToContact.addEventListener("click", () => {
+            const windowRecommendations = document.getElementById("container-recommendations");
+            const windowContainer = document.getElementById("container-contact");
+            if (windowContainer && windowRecommendations) {
+                const maxZ = calculateMaxZIndex();
+                windowRecommendations.classList.add("closed");
+                windowContainer.classList.remove("closed");
+                windowContainer.style.zIndex = (maxZ + 1).toString();
+            }
+        });
+    }
+
+    if (goToProjects) {
+        goToProjects.addEventListener("click", () => {
+            const windowContainer = document.getElementById("container-projects");
+            const windowRecommendations = document.getElementById("container-recommendations");
+            if (windowContainer && windowRecommendations) {
+                const maxZ = calculateMaxZIndex();
+                windowRecommendations.classList.add("closed");
+                windowContainer.classList.remove("closed");
+                windowContainer.style.zIndex = (maxZ + 1).toString();
+            }
+        });
+    }
+</script>
 
 <script>
 const testimonials = [

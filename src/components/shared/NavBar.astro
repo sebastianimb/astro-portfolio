@@ -46,14 +46,22 @@ interface Props {
             const allWindows = document.querySelectorAll('.window-container');
             allWindows.forEach(win => {
                 if (win.id !== windowId) {
+                    (win as HTMLElement).style.transition = "transform 300ms ease, opacity 300ms ease"
                     win.classList.add('closed');
+                    setTimeout(() => {
+                        (win as HTMLElement).style.transition = "none";
+                    }, 300);
                 }
             });
             if (windowId) {
                 const windowContainer = document.getElementById(windowId);
                 if (windowContainer) {
+                    windowContainer.style.transition = "transform 300ms ease, opacity 300ms ease"
                     windowContainer.classList.toggle('closed');
                     windowContainer.style.zIndex = (maxZ + 1).toString();
+                    setTimeout(() => {
+                        windowContainer.style.transition = "none";
+                    }, 300);
                 }
             }
         });

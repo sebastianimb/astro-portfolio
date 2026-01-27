@@ -44,8 +44,8 @@ const projects = [
     },
 ]
 ---
-<section id="container-projects-folder" class="w-full place-self-start h-full text-white">
-    <div id="container-folder" class="p-4 h-fit">
+<section id="container-projects-folder" class="w-full flex flex-col place-self-start h-full text-white">
+    <div id="container-folder" class="p-4 md:p-8 h-fit">
         { projects.map(({ title, color, id, imgSrc, demo, tools, description }) => {
             return (
                 <div data-project={JSON.stringify({ id, title, imgSrc, demo, tools, description, color })} class="cursor-pointer h-fit max-w-32 flex flex-col text-center" >
@@ -91,13 +91,13 @@ const projects = [
 
         </div>
     </div>
-    <div id="go-to-" class="py-4 px-8 w-full flex justify-between">
+    <div id="go-to-" class="py-4 px-8 w-full flex-wrap gap-1 flex justify-between">
         <div id="go-to-experience-projects" class="py-4 flex justify-end underline cursor-pointer items-center gap-0.5">
             <Icon name="arrow-left" size={24} />
             <p>Experiencia</p>
         </div>
-        <div id="go-to-contact" class="py-4 flex justify-end underline cursor-pointer items-center gap-0.5">
-            <p>Contacto</p>
+        <div id="go-to-references-projects" class="py-4 flex justify-end underline cursor-pointer items-center gap-0.5">
+            <p>Referencias</p>
             <Icon name="arrow-right" size={24} />
         </div>
     </div>
@@ -154,13 +154,13 @@ const projects = [
         return maxZ;
     }
 
-    const goToContact = document.getElementById("go-to-contact");
+    const goToreferences = document.getElementById("go-to-references-projects");
     const goToExperience = document.getElementById("go-to-experience-projects");
 
-    if (goToContact) {
-        goToContact.addEventListener("click", () => {
+    if (goToreferences) {
+        goToreferences.addEventListener("click", () => {
             const windowProjects = document.getElementById("container-projects");
-            const windowContainer = document.getElementById("container-contact");
+            const windowContainer = document.getElementById("container-references");
             if (windowContainer && windowProjects) {
                 const maxZ = calculateMaxZIndex();
                 windowProjects.classList.add("closed");

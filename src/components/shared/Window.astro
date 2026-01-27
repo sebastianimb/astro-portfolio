@@ -13,12 +13,9 @@ const links = [
     { image: "user", text: 'Sobre Mi' , color: 'lightblue', windowId: 'container-about' },
     { image: "experience", text: 'Experiencia', color: '#ef476f', windowId: 'container-experience' },
     { image: "projects", text: 'Proyectos', color: '#ffd166', windowId: 'container-projects' },
+	{ image: "references", text: 'Referencias' , color: 'lightblue', windowId: 'container-references' },
     { image: "contact", text: 'Contacto', color: '#06d6a0', windowId: 'container-contact' },
 ]
-
-const recomendations = [
-	{ image: "recommendations", text: 'Recomendaciones' , color: 'lightblue', windowId: 'container-recommendations' }
-	]
 ---
 
 <div id={id} class="window-container py-8 px-2 sm:px-4 md:px-8 w-full h-full overflow-y-hidden mb-8" class:list={[Astro.props.hidden ? "closed" : ""]}>
@@ -43,15 +40,6 @@ const recomendations = [
 							</li>
 						)
 					}) }
-					<hr>
-					{ recomendations.map(({ image, text, color, windowId })=>{
-						return (
-							<li class="aside-nav" data-color-text={color} data-tooltip-target={text} data-window-id={windowId}>
-								<Icon name={image} size={16} class="inline-block"/>
-								<span class="text-nav">{text}</span>
-							</li>
-						)
-					}) }
 				</ul>
 			</nav>
 		</aside>
@@ -66,11 +54,13 @@ const recomendations = [
 
 	if (closeWindow) {
 		closeWindow.addEventListener('click', () => {
+			//windowContainer.style.transition = "transform 300ms ease, opacity 300ms ease";
 			windowContainer.classList.toggle('closed');
 		});
 	}
 	if (minimizeWindow) {
 		minimizeWindow.addEventListener('click', () => {
+			//windowContainer.style.transition = "transform 300ms ease, opacity 300ms ease";
 			windowContainer.classList.toggle('closed');
 		});
 	}
@@ -102,7 +92,7 @@ const recomendations = [
 
             allWindows.forEach(win => {
                 if (win.id !== windowId) {
-                    win.classList.add('closed');
+					win.classList.add('closed');
                 } 
             });
 
@@ -196,12 +186,11 @@ const recomendations = [
 		margin: 0 auto;
 		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
 		grid-area: main;
-		transform: scale(1) translateY(0);
-		opacity: 1;
-		transition: transform 300ms ease, opacity 300ms ease;
 		transform-origin: bottom center;
 		max-width: 1280px;
 		margin-bottom: 2rem;
+		transform: scale(1) translateY(0);
+		opacity: 1;
 		@starting-style{
 			opacity: 0;
 			transform: scale(0) translateY(100%);
@@ -215,8 +204,8 @@ const recomendations = [
 	.closed {
 		visibility: hidden;
 		opacity: 0;
-		transform: scale(0) translateY(100%);
-		transition: opacity 300ms ease, transform 300ms ease, visibility 300ms ease;
+		transform: scale(0) translateY(100%);/* 
+		transition: opacity 300ms ease, transform 300ms ease, visibility 300ms ease; */
 	}
 	@media (min-width: 768px) {
 		main {

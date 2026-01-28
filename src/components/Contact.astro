@@ -2,7 +2,7 @@
 import { Icon } from 'astro-icon/components';
 ---
 <section class="p-6 md:p-8 flex w-full place-self-start flex-col h-full items-center"> 
-  <div id="contact" class="contact md:bg-black/20 flex w-full flex-col p-6 pb-0 rounded-xl md:border md:border-white/20 text-white">
+  <div id="contact" class="contact md:bg-black/20 flex w-full flex-col md:p-6 pb-0 rounded-xl md:border md:border-white/20 text-white">
     <h1 class="text-3xl font-bold pb-8">Póngamonos en contacto</h1>
     <form id="contactForm" class="contact-form">
       <input type="text" name="name" class="contact-input-name rounded-xl text-md border border-white/20" placeholder="¿Cuál es tu nombre?"
@@ -16,11 +16,11 @@ import { Icon } from 'astro-icon/components';
               <p>Enviar</p>
           </button>
       </div>
-       <div id="formMessage"></div>
+       <div class="hidden" id="formMessage"></div>
     </form>
   </div>
   <div id="go-to--" class="w-full text-white flex justify-between">
-    <div id="go-to-references-from-contact" class="py-8 pl-4 flex justify-end underline cursor-pointer items-center gap-0.5">
+    <div id="go-to-references-from-contact" class="pt-8 flex justify-end underline cursor-pointer items-center gap-0.5">
         <Icon name="arrow-left" size={24} />
         <p>Referencias</p>
     </div>

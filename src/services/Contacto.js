@@ -23,14 +23,17 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
     const result = await response.json();
 
     if (response.ok) {
+      message.classList.remove("hidden");
       message.style.color = "green";
       message.textContent = "Mensaje enviado correctamente.";
       form.reset();
     } else {
+      message.classList.remove("hidden");
       message.style.color = "red";
       message.textContent = result.error || "Error al enviar.";
     }
   } catch {
+    message.classList.remove("hidden");
     message.style.color = "red";
     message.textContent = "Error de conexión.";
   } finally {

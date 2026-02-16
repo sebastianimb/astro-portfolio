@@ -18,33 +18,35 @@ const links = [
 ]
 ---
 
-<div id={id} class="window-container py-8 px-2 sm:px-4 md:px-8 w-full h-full overflow-y-hidden mb-8" class:list={[Astro.props.hidden ? "closed" : ""]}>
-	<section class="window-header flex justify-between text-white font-bold w-full border-t border-x border-white/20 bg-black/70 rounded-t-md py-2 px-4 cursor-grab active:cursor-grabbing">
-		<h1>
-			{title}
-		</h1>
-		<div class="flex">
-			<Icon name="minimize" size={24} class="mr-4 cursor-pointer" id={`minimize-${id}`}></Icon>
-			<Icon name="close" size={24} id={`close-${id}`} class="cursor-pointer"></Icon>
-		</div>
-	</section>
-	<main id={`window-${id}`} class="window bg-neutral-900/96 overflow-y-scroll place-items-center grid w-full h-full border border-b-8 border-white/20 rounded-b-md shadow-lg">
-		<aside class="hidden relative flex-col justify-start gap-8 bg-neutral-950/35 border-r border-white/20 h-full text-white/50">
-			<nav class="sticky top-0">
-				<ul class="pt-4">
-					{ links.map(({ image, text, color, windowId })=>{
-						return (
-							<li class="aside-nav" data-color-text={color} data-tooltip-target={text} data-window-id={windowId}>
-								<Icon name={image} size={16} class="inline-block"/>
-								<span class="text-nav">{text}</span>
-							</li>
-						)
-					}) }
-				</ul>
-			</nav>
-		</aside>
-		<slot />
-	</main>
+<div id={id} class="window-container pt-8 px-2 sm:px-4 md:px-8 w-full h-full overflow-y-hidden mb-8" class:list={[Astro.props.hidden ? "closed" : ""]}>
+	<aside class="hidden relative flex-col justify-start gap-8  bg-neutral-800/96 rounded-tl-md rounded-bl-md h-full text-white/50">
+		<nav class="sticky top-0">
+			<ul class="pt-10">
+				{ links.map(({ image, text, color, windowId })=>{
+					return (
+						<li class="aside-nav" data-color-text={color} data-tooltip-target={text} data-window-id={windowId}>
+							<Icon name={image} size={16} class="inline-block"/>
+							<span class="text-nav">{text}</span>
+						</li>
+					)
+				}) }
+			</ul>
+		</nav>
+	</aside>
+	<div class="d-flex flex-col w-full">
+		<section class="window-header flex justify-between text-white font-bold w-full  bg-neutral-800/96 rounded-tr-md rounded-tl-md py-2 px-4 cursor-grab active:cursor-grabbing">
+			<h1 class="text-white/50 text-sm">
+				/  {title}
+			</h1>
+			<div class="flex">
+				<Icon name="minimize" size={24} class="mr-4 cursor-pointer" id={`minimize-${id}`}></Icon>
+				<Icon name="close" size={24} id={`close-${id}`} class="cursor-pointer"></Icon>
+			</div>
+		</section>
+		<main id={`window-${id}`} class="window bg-neutral-900/96 overflow-y-scroll place-items-center grid w-full h-full rounded-b-md shadow-lg">
+			<slot />
+		</main>
+	</div>
 </div>
 
 <script define:vars={{ windowId: id }}>
@@ -185,6 +187,7 @@ const links = [
 		margin-bottom: 1rem;
 	}
 	.window-container {
+		display: flex;
 		margin: 0 auto;
 		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
 		grid-area: main;
@@ -212,8 +215,8 @@ const links = [
 		transition: opacity 300ms ease, transform 300ms ease, visibility 300ms ease;
 	}
 	@media (min-width: 768px) {
-		main {
-			grid-template-columns: auto 1fr;
+		.window-header{
+			border-radius: 0 8px 0 0;
 		}
 		aside {
 			display: flex;

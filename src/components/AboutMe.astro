@@ -18,12 +18,19 @@ import { Icon } from 'astro-icon/components';
     <main class="flex-col xl:flex-row p-6 sm:p-16 md:border border-white/20 rounded-xl justify-center items-center md:items-start md:gap-8 text-white hidden" id="avatar-section">
         <Image src={Avatar} alt="Avatar" class="avatar-img w-64 p-4 h-64 rounded-full"/>
         <div class="max-w-xl">
+            <h3 class="text-neutral-500 mb-1">Hola, mi nombre es</h3>
+            <h1 class="text-5xl font-bold mb-4">
+                Sebastián Molina
+            </h1>
+            <h2 class="text-xl">
+                Ingeniero de Software
+            </h2>
+            <h2 class="text-xl">    
+                Desarrollador web - Full Stack
+            </h2>
             <p class="mb-4 mt-4 text-md text-white/50">
-                Hola, mi nombre es Sebastián y soy un desarrollador de software con más de tres años de experiencia, enfocado en Frontend. Me especializo en
-                la creación de interfaces y me apasiona la experiencia de usuario. Actualmente estoy trabajando en el área Backend y poseo
-                10 años de experiencia como diseñador gráfico freelance, lo que me ha dado una perspectiva más amplia
-                en la creación de interfaces. Me encanta mantenerme al tanto de las últimas tendencias tecnológicas y
-                buenas prácticas para asegurar soluciones de calidad.
+                Ingeniero Civil en Informática con más de 3 años de experiencia en el desarrollo web y una trayectoria previa como diseñador gráfico freelance.
+                Soy un profesional adaptable y colaborativo que busca desafíos donde consolidar su carrera, con el objetivo de seguir creciendo profesionalmente en un buen ambiente laboral y contribuir a la mejora continua de productos del equipo.
             </p>
             <div class="my-8 rounded-md w-full cursor-pointer flex justify-between border border-white/20">
                 <a target="_blank" title="GitHub" href="https://github.com/sebastianimb" class="github py-3 flex-1 flex align-center justify-center border-r-2 border-white/20">
@@ -162,6 +169,9 @@ import { Icon } from 'astro-icon/components';
         .avatar-img {
             align-self: center;
             object-fit: cover;
+        }
+        div h1{
+            color: #a4c334
         }
     }
 

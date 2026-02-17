@@ -4,19 +4,29 @@ import tracking from '@assets/tracking.png';
 import skinopoly from '@assets/skinopoly.png';
 import pokemon from '@assets/pokemon.png';
 import fact from '@assets/cat-fact.png';
+import hackerrank from '@assets/hackerrank.png';
 
 const projects = [
     {   
         id:1,
+        title: "Ejercicios de HackerRank",
+        description: "Proyecto para resolver ejercicios de programación de la plataforma HackerRank.",
+        imgSrc: hackerrank,
+        color: "#ea79be",
+        demo: "https://ejercicios-hackerrank.netlify.app/",
+        tools: ["react", "typescript", "css", "html"],
+    },
+    {   
+        id:2,
         title: "Seguimiento de Solicitudes",
         description: "Proyecto para dar seguimiento a solicitudes de diferentes distribuidores.",
         imgSrc: tracking,
         color: "#14b8a6",
         demo: "https://demo-tracking-solicitudes.netlify.app/",
-        tools: ["javascript", "vue", "sass", "html"]
-        },
+        tools: ["vue", "javascript", "sass", "html"]
+    },
     {
-        id:2,
+        id:3,
         title: "Tienda Online Skin CS2",
         description: "Tienda online para la venta de skins del juego Counter Strike 2.",
         imgSrc: skinopoly,
@@ -25,7 +35,7 @@ const projects = [
         tools: ["angular", "typescript", "sass", "html"]
         },
     {
-        id:3,
+        id:4,
         title: "Búsqueda de Pokemones",
         description: "Aplicación para buscar información sobre diferentes pokemones utilizando una API pública.",
         imgSrc: pokemon,
@@ -34,13 +44,13 @@ const projects = [
         tools: ["astro", "javascript", "tailwind", "css" , "html"]
         },
     {
-        id:4,
+        id:5,
         title: "Hechos acerca de gatos",
         description: "Aplicación que muestra hechos interesantes sobre gatos utilizando una API pública.",
         imgSrc: fact,
         color: "#eab308",
         demo: "https://cats-fact-react.netlify.app",
-        tools: ["typescript", "react", "css", "html"]
+        tools: ["react", "typescript", "css", "html"]
     },
 ]
 ---

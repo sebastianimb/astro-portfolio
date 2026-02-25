@@ -2,7 +2,7 @@
 import { Icon } from 'astro-icon/components';
 ---
 <section class="p-6 md:p-8 flex w-full place-self-start flex-col h-full items-center"> 
-  <div id="contact" class="contact md:bg-black/20 flex w-full flex-col md:p-6 pb-0 rounded-xl md:border md:border-white/20 text-white">
+  <div id="contact" class="contact md:bg-black/20 flex w-full flex-col md:p-6 pb-0 rounded-xl text-white">
     <h1 class="text-2xl font-bold ml-2 pb-8">Póngamonos en contacto</h1>
     <form id="contactForm" class="contact-form">
       <input type="text" name="name" class="contact-input-name rounded-xl text-md border border-white/20" placeholder="¿Cuál es tu nombre?"
@@ -11,7 +11,7 @@ import { Icon } from 'astro-icon/components';
           required>
       <textarea name="body" class="contact-textarea rounded-xl text-md border border-white/20" placeholder="Escribe aquí tu mensaje"
           required></textarea>
-      <div class="contact-submit">
+      <div class="pb-4 contact-submit">
           <button type="submit" name="submit" class="rounded-xl text-md">
               <p>Enviar</p>
           </button>

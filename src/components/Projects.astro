@@ -64,7 +64,7 @@ const projects = [
     },
 ]
 ---
-<section id="container-projects-folder" class="w-full flex flex-col place-self-start h-full text-white">
+<section id="container-projects-folder" class="w-full flex flex-col place-self-start h-full text-white justify-between">
     <div id="container-folder" class="p-4 md:p-8 h-fit">
         { projects.map(({ title, color, id, imgSrc, demo, tools, description }) => {
             return (
@@ -76,7 +76,7 @@ const projects = [
     </div>
     <div id="details" class="hidden bg-neutral-600/20 py-4 md:py-0 border-0 text-white">
         <div id="project-details" class="p-4">
-            <a class="border border-white/55 p-4 rounded-xl" target="_blank" id="link-project" href="">
+            <a class="border border-white/55 p-2 rounded-xl" target="_blank" id="link-project" href="">
                 <img id="collage" src="" alt="Collage de proyectos" class="rounded-md mb-4"/>
             </a>
             <table>
@@ -125,11 +125,13 @@ const projects = [
 </section>
 
 <script>
-
+    const projectContainer = document.getElementById("container-projects-folder");
     const projectsData = document.querySelectorAll("#container-folder div");
     const projectDetails = document.getElementById("project-details") as HTMLElement;
     projectsData.forEach(project => {
         project.addEventListener("click", () => {
+            projectContainer?.classList.add("justify-start");
+
             const data = JSON.parse(project.getAttribute("data-project")!);
             const linkProject = document.getElementById("link-project") as HTMLAnchorElement;
             const collage = document.getElementById("collage") as HTMLImageElement;

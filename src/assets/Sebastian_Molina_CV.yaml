@@ -1,0 +1,231 @@
+cv:
+  name: "Sebastian Molina"
+  location: "Valdivia, Chile"
+  email: "sebastianmolina.b7@gmail.com"
+  phone: "+56-966-511-688"
+  website: "https://sebastian-molina.netlify.app"
+  social_networks:
+    - network: "GitHub"
+      username: "sebastianimb"
+  sections:
+    resumen:
+      - "Ingeniero Civil en Informática con más de 3 años de experiencia en el desarrollo web y una trayectoria previa como diseñador gráfico freelance. Soy un profesional adaptable y colaborativo que busca desafíos donde consolidar su carrera, con el objetivo de seguir creciendo profesionalmente en un buen ambiente laboral y contribuir a la mejora continua de productos del equipo. Me encanta mantenerme al tanto de las últimas tendencias tecnológicas y buenas prácticas para asegurar soluciones de calidad."
+    experiencia:
+      - company: "Innovex Tecnologias SpA"
+        position: "Ingeniero de Desarrollo"
+        start_date: "2025-07"
+        end_date: "present"
+        highlights:
+          - "Construí una API REST empleando Django y apliqué testing mediante el módulo unittest de Python para plataformas analíticas de vigilancia ambiental, oceanográfica y acuicultura. Colaboración adicional en el diseño de modelos de base de datos (Python, Django, SQLite)."
+          - "Elaboración de documentación técnica mediante Swagger y Sphinx."
+          - "Contribuí en el desarrollo frontend, priorizando la sostenibilidad del código, implementando principios SOLID, patrones de diseño y experiencia de usuario, para aplicaciones de monitoreo (TypeScript, React 18/19, TanStack)."
+      - company: "VASS Consultoría de Sistemas Chile Ltda"
+        position: "Desarrollador Frontend"
+        start_date: "2022-07"
+        end_date: "2024-09"
+        highlights:
+          - "Aporté en la mantención de aplicaciones como soporte y desarrollé nuevos requerimientos para añadir funcionalidades claves, junto con la resolución de incidencias reportadas por los clientes."
+          - "Construí una página dinámica para el proyecto de turismo para el cliente Caja Los Andes, utilizando DXP Modyo, React.js y TypeScript."
+          - "Desarrollé aplicaciones para el cliente Consorcio utilizando Vue.js y JavaScript, enfocadas en la creación de plataformas para la digitalización de procesos de seguros empresariales y corredores, utilizando la metodología ágil Scrum."
+      - company: "Freelance"
+        position: "Diseñador Gráfico"
+        start_date: "2010-03"
+        end_date: "2020-03"
+        highlights:
+          - "Obtuve experiencia colaborando con diversas empresas y clientes individuales, gestionando proyectos de imagen desde la conceptualización hasta la entrega final."
+          - "Desarrollé habilidades que posteriormente serían fundamentales para mi transición a desarrollador Frontend, como la comprensión de diseño visual, manejo de herramientas de diseño y sensibilidad estética."
+    educación:
+      - institution: "Universidad Austral de Chile"
+        area: "Ingeniería Civil en Informática"
+        degree: "SUP"
+        start_date: "2015-03"
+        end_date: "2022-01"
+        location: "Valdivia, Chile"
+        highlights:
+          - "Titulado con distinción."
+          - "Trabajé de ayudante por tres años en cursos de programación."
+    certificaciones:
+      - label: "Academia DevTalles"
+        details: "[Nest: Desarrollo backend escalable con Node](https://cursos.devtalles.com/certificates/ebz6a1tojn) - 24.5 horas"
+        date: "2026-05"
+      - label: "Academia Hola Mundo"
+        details: "[React - Guía definitiva: hooks, router, redux, next + Proyectos](https://academia.holamundo.io/certificates/jnjlzskt0o) - 18 horas"
+        date: "2025-05"
+      - label: "Academia DevTalles"
+        details: "[Patrones de diseño: Soluciones prácticas y eficientes](https://cursos.devtalles.com/certificates/2ow3c4lnm6) - 10 horas"
+        date: "2025-04"
+      - label: "Academia Hola Mundo"
+        details: "[TypeScript: Tu completa guía y manual de mano](https://academia.holamundo.io/certificates/ophk42tfni) - 9 horas"
+        date: "2025-03"
+      - label: "Udemy"
+        details: "Diseño Ux: Experiencia de Usuario UX/UI + Figma 2023 - 23 horas"
+    competencias_técnicas:
+      - bullet: "HTML - CSS - SASS - JavaScript - TypeScript - ReactJs - VueJs - Astro - Bootstrap 5 - Tailwind CSS - Python - Django - Git - Vite - Jira - Dxp Modyo - Figma - Adobe Photoshop"
+design:
+  theme: classic
+  page:
+    size: us-letter
+    top_margin: 0.7in
+    bottom_margin: 0.7in
+    left_margin: 0.7in
+    right_margin: 0.7in
+    show_footer: true
+    show_top_note: true
+  colors:
+    body: rgb(0, 0, 0)
+    name: rgb(0, 79, 144)
+    headline: rgb(0, 79, 144)
+    connections: rgb(0, 79, 144)
+    section_titles: rgb(0, 79, 144)
+    links: rgb(0, 79, 144)
+    footer: rgb(128, 128, 128)
+    top_note: rgb(128, 128, 128)
+  typography:
+    line_spacing: 0.6em
+    alignment: justified
+    date_and_location_column_alignment: right
+    font_family:
+      body: Source Sans 3
+      name: Source Sans 3
+      headline: Source Sans 3
+      connections: Source Sans 3
+      section_titles: Source Sans 3
+    font_size:
+      body: 10pt
+      name: 30pt
+      headline: 10pt
+      connections: 10pt
+      section_titles: 1.4em
+    small_caps:
+      name: false
+      headline: false
+      connections: false
+      section_titles: false
+    bold:
+      name: true
+      headline: false
+      connections: false
+      section_titles: true
+  links:
+    underline: false
+    show_external_link_icon: false
+  header:
+    alignment: center
+    photo_width: 3.5cm
+    photo_position: left
+    photo_space_left: 0.4cm
+    photo_space_right: 0.4cm
+    space_below_name: 0.7cm
+    space_below_headline: 0.7cm
+    space_below_connections: 0.7cm
+    connections:
+      phone_number_format: national
+      hyperlink: true
+      show_icons: true
+      display_urls_instead_of_usernames: false
+      separator: ''
+      space_between_connections: 0.5cm
+  section_titles:
+    type: with_partial_line
+    line_thickness: 0.5pt
+    space_above: 0.5cm
+    space_below: 0.3cm
+  sections:
+    allow_page_break: true
+    space_between_regular_entries: 1.2em
+    space_between_text_based_entries: 0.3em
+    show_time_spans_in:
+      - experience
+  entries:
+    date_and_location_width: 4.15cm
+    side_space: 0.2cm
+    space_between_columns: 0.1cm
+    allow_page_break: false
+    short_second_row: true
+    degree_width: 1cm
+    summary:
+      space_above: 0cm
+      space_left: 0cm
+    highlights:
+      bullet: •
+      nested_bullet: •
+      space_left: 0.15cm
+      space_above: 0cm
+      space_between_items: 0cm
+      space_between_bullet_and_text: 0.5em
+  templates:
+    footer: '*NAME -- PAGE_NUMBER/TOTAL_PAGES*'
+    top_note: '*LAST_UPDATED CURRENT_DATE*'
+    single_date: MONTH_ABBREVIATION YEAR
+    date_range: START_DATE – END_DATE
+    time_span: HOW_MANY_YEARS YEARS HOW_MANY_MONTHS MONTHS
+    one_line_entry:
+      main_column: '**LABEL:** DETAILS'
+    education_entry:
+      main_column: |-
+        **INSTITUTION**, AREA
+        SUMMARY
+        HIGHLIGHTS
+      degree_column: '**DEGREE**'
+      date_and_location_column: |-
+        LOCATION
+        DATE
+    normal_entry:
+      main_column: |-
+        **NAME**
+        SUMMARY
+        HIGHLIGHTS
+      date_and_location_column: |-
+        LOCATION
+        DATE
+    experience_entry:
+      main_column: |-
+        **COMPANY**, POSITION
+        SUMMARY
+        HIGHLIGHTS
+      date_and_location_column: |-
+        LOCATION
+        DATE
+    publication_entry:
+      main_column: |-
+        **TITLE**
+        SUMMARY
+        AUTHORS
+        URL (JOURNAL)
+      date_and_location_column: DATE
+locale:
+  language: spanish
+  last_updated: Última actualización
+  month: mes
+  months: meses
+  year: año
+  years: años
+  present: presente
+  phrases:
+    degree_with_area: DEGREE en AREA
+  month_abbreviations:
+    - Ene
+    - Feb
+    - Mar
+    - Abr
+    - May
+    - Jun
+    - Jul
+    - Ago
+    - Sep
+    - Oct
+    - Nov
+    - Dic
+  month_names:
+    - Enero
+    - Febrero
+    - Marzo
+    - Abril
+    - Mayo
+    - Junio
+    - Julio
+    - Agosto
+    - Septiembre
+    - Octubre
+    - Noviembre
+    - Diciembre

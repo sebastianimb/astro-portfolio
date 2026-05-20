@@ -29,7 +29,7 @@ import { Icon } from 'astro-icon/components';
                 <a target="_blank" title="LinkedIn" href="https://www.linkedin.com/in/sebastian-molina-bastidas/" class="linkedin py-3 flex-1 flex align-center justify-center border-r-2 border-white/20">
                     <Icon name="linkedin" size={32} />
                 </a>
-                <a target="_blank" title="CV" class="cv py-3 flex-1 flex align-center justify-center border-r-2 border-white/20" id="cv-download">
+                <a title="CV" href={CV} download="CV-Sebastian-Molina.pdf" class="cv py-3 flex-1 flex align-center justify-center border-r-2 border-white/20" id="cv-download">
                     <Icon name="cv" size={32} />
                 </a>
                 <a target="_blank" title="Flickr" href="https://www.flickr.com/photos/cheesterworks/" class="flickr py-3 flex-1 flex align-center justify-center">
@@ -43,24 +43,6 @@ import { Icon } from 'astro-icon/components';
         </div>
     </main>
 </section>
-
-<script is:inline define:vars={{cvPath: CV}}>
-    window.addEventListener("DOMContentLoaded", () => {
-        const cvLink = document.getElementById("cv-download");
-        cvLink?.addEventListener("click", () => {
-            const link = document.createElement("a");
-            link.type = "application/pdf";
-            link.href = cvPath;
-            link.download = "CV-Sebastian-Molina.pdf";
-            fetch(link.href)
-                .then((response) => {
-                    if (!response.ok) throw new Error("Archivo no encontrado");
-                    link.click();
-                })
-                .catch((error) => alert("Error: " + error.message));
-        });
-    });
-</script>
 
 <script>
     function initializeEventListeners() {

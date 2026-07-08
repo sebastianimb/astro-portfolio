@@ -20,5 +20,10 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# RenderCV generated output
+**/rendercv_output/
+
 # jetbrains setting folder
 .idea/
+# Local Pi runtime state
+.atl/

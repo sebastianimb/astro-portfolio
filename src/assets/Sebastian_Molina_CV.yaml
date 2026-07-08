@@ -3,7 +3,7 @@ cv:
   location: "Valdivia, Chile"
   email: "sebastianmolina.b7@gmail.com"
   phone: "+56-966-511-688"
-  website: "https://sebastian-molina.netlify.app"
+  website: "https://sebastianimb.netlify.app/"
   social_networks:
     - network: "GitHub"
       username: "sebastianimb"
@@ -58,7 +58,8 @@ cv:
         details: "[TypeScript: Tu completa guía y manual de mano](https://academia.holamundo.io/certificates/ophk42tfni) - 9 horas"
         date: "2025-03"
       - label: "Udemy"
-        details: "Diseño Ux: Experiencia de Usuario UX/UI + Figma 2023 - 23 horas"
+        details: "[Diseño Ux: Experiencia de Usuario UX/UI + Figma 2023](https://drive.google.com/file/d/1Y8U618-56N98ddBT1ubD26ylqUdK4mfT/view?usp=sharing) - 23 horas"
+        date: "2023-08"
     competencias_técnicas:
       - bullet: "JavaScript - TypeScript - Python - ReactJs - VueJs - Astro - NestJs - Django - HTML - CSS - SASS - Bootstrap 5 - Tailwind CSS - Git - Vite - Jira - Dxp Modyo - Figma - Adobe Photoshop"
 design:
